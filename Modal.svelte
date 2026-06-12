@@ -28,23 +28,23 @@
       delay,
       duration,
       easing: cubicOut,
-      tick: (t) => {
-        node.style.setProperty("--progress", t);
-      },
-      // css: (t) => `--transition: ${t}`
+      // tick: (t) => {
+      //   node.style.setProperty("--progress", t);
+      // },
+      css: (t) => `--progress: ${t}`
     };
   }
 </script>
 
 <script>
-  import { fade,scale } from 'svelte/transition';
+  import { fade,fly } from 'svelte/transition';
   const { src, close } = $props()
 </script>
 
 <div class="modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="modal_bg" onclick={close} transition:fade></div>
-  <div class="modal layout" aria-modal="true" role="dialog" transition:variable>
+  <div class="modal layout" aria-modal="true" role="dialog" in:variable out:fly={{y: 20, duration: 200}} >
     <Frame {src} />
     <nav>
       <button onclick={close} aria-label="Close modal">
@@ -56,11 +56,17 @@
 
 <style>
 .modal_wrapper {
-
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .modal_bg {
-  background: rgba(0, 0, 0, 0.7);
   position: absolute;
+  background: rgba(0, 0, 0, 0.7);
   top: 0;
   left: 0;
   width: 100%;
@@ -85,11 +91,15 @@ nav {
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   backdrop-filter: blur(8px);
+  min-height: 70%;
 }
 
 @media (min-width: 640px) {
   .modal {
     max-width: 400px;
+    position: static;
+    transform: scale(var(--progress));
+    border-radius: 2rem;
   }
 }
 </style>
