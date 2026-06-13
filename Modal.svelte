@@ -3,18 +3,24 @@
   import { Frame } from 'inertiax-svelte'
   import Modal from './Modal.svelte';
   import { cubicOut } from 'svelte/easing';
+  import { push } from './history'
 
   export function modal(node) {
     node.addEventListener('click', (e) => {
       e.preventDefault()
       const href = node.getAttribute('href')
-      const modal = mount(Modal, { 
-        target: document.body,
-        props: {
-          src: href,
-          close: () => {
-            unmount(modal, {outro: true})
+      push(function () {
+        const modal = mount(Modal, { 
+          target: document.body,
+          props: {
+            src: href,
+            close: () => {
+              window.history.back()
+            }
           }
+        })
+        return function () {
+          unmount(modal, { outro: true })
         }
       })
     })
@@ -45,7 +51,7 @@
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="modal_bg" onclick={close} transition:fade></div>
   <div class="modal layout" aria-modal="true" role="dialog" in:variable out:fly={{y: 20, duration: 200}} >
-    <Frame {src} />
+    <Frame {src} {close} />
     <nav>
       <button onclick={close} aria-label="Close modal">
         <div class="i-material-symbols-light:close-rounded">Close</div>
