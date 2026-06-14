@@ -9,14 +9,12 @@
     node.addEventListener('click', (e) => {
       e.preventDefault()
       const href = node.getAttribute('href')
-      push(function () {
+      push(function(traverseBack) {
         const modal = mount(Modal, { 
           target: document.body,
           props: {
             src: href,
-            close: () => {
-              window.history.back()
-            }
+            close: traverseBack
           }
         })
         return function () {
@@ -27,7 +25,7 @@
   }
 
 
- function variable(node, { delay = 0 }) {
+ function css(node, { delay = 0 }) {
     // duration on desktop is 300, on mobile 400
     const duration = window.innerWidth > 768 ? 300 : 400;
     return {
@@ -50,7 +48,7 @@
 <div class="modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="modal_bg" onclick={close} transition:fade></div>
-  <div class="modal layout" aria-modal="true" role="dialog" in:variable out:fly={{y: 20, duration: 200}} >
+  <div class="modal layout" aria-modal="true" role="dialog" transition:css>
     <Frame {src} {close} />
     <nav>
       <button onclick={close} aria-label="Close modal">
@@ -104,7 +102,8 @@ nav {
   .modal {
     max-width: 400px;
     position: static;
-    transform: scale(var(--progress));
+    transform: scale(calc(var(--progress) * 0.3 + 0.7));
+    opacity: var(--progress);
     border-radius: 2rem;
   }
 }
