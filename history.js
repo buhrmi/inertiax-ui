@@ -20,7 +20,21 @@ export function push(arrive) {
   receders[currentKey] = arrive(() => navigation.traverseTo(previousKey))
 }  
 
+function garbageCollectOrphanedCallbacks() {
+  const validKeys = new Set(navigation.entries().map(e => e.key))
+  for (const key of Object.keys(arrivers)) {
+    if (!validKeys.has(key)) {
+      delete arrivers[key]
+      delete receders[key]
+    }
+  }
+}
+
 window.navigation.addEventListener('navigate', (event) => {
+  if (event.navigationType === 'push') {
+    garbageCollectOrphanedCallbacks()
+  }
+  
   if (event.navigationType === 'traverse') {  
     const destKey = event.destination.key;
     const destIndex = event.destination.index;
@@ -34,10 +48,6 @@ window.navigation.addEventListener('navigate', (event) => {
       // navigated back. recede the current key
       receders[currKey]?.()
     }
-  }
-  else if (event.navigationType === 'push') {
-    arrivers[navigation.currentEntry.key] = null
-    receders[navigation.currentEntry.key] = null
   }
 })
 

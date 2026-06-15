@@ -31,9 +31,9 @@ The Modal component passes a `close` function down to its page component as a pr
 <button onclick={close}>Close</button>
 ```
 
-### Styling
+## Installation
 
-Inertia X UI ships with a default dark style that displays the modal as a bottom sheet.
+To start using Inertia X UI, install the `inertiax-ui` package and import the CSS style you'd like to use. Inertia X UI ships with a default dark style that displays the modal as a bottom sheet.
 
 ```js
 import 'inertiax-ui/dark.css'
