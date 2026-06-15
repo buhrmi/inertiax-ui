@@ -4,7 +4,10 @@ A collection of Svelte components for [Inertia X](https://github.com/buhrmi/iner
 
 ## Modal
 
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. It can be created via the `modal` action:
+
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. It can be created via the `modal` action.
+
+![dark.css demo](./dark.css.webp)
 
 ### Opening a modal
 
