@@ -45,10 +45,10 @@
   const { src, close } = $props()
 </script>
 
-<div class="modal_wrapper">
+<div class="inx-modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
-  <div class="modal_bg" onclick={close} transition:fade></div>
-  <div class="modal layout" aria-modal="true" role="dialog" transition:css>
+  <div class="inx-modal_bg" onclick={close} transition:fade></div>
+  <div class="inx-modal" aria-modal="true" role="dialog" transition:css>
     <Frame {src} {close} />
     <nav>
       <button onclick={close} aria-label="Close modal">
@@ -58,53 +58,3 @@
   </div>
 </div>
 
-<style>
-.modal_wrapper {
-  display: grid;
-  place-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.modal_bg {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.7);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* z-index: -1; */
-}
-nav {
-  grid-area: header;
-  display: flex;
-  justify-content: flex-end;
-  button {
-    font-size: 1.5rem;
-    
-  }
-}
-.modal {
-  position: fixed;
-  bottom: 0;
-  transform: translateY(calc((1 - var(--progress)) * 100%));
-  background-color: #00000022;
-  border: 1px solid #333;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  backdrop-filter: blur(8px);
-  min-height: 70%;
-}
-
-@media (min-width: 640px) {
-  .modal {
-    max-width: 400px;
-    position: static;
-    transform: scale(calc(var(--progress) * 0.3 + 0.7));
-    opacity: var(--progress);
-    border-radius: 2rem;
-  }
-}
-</style>
