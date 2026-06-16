@@ -14,10 +14,12 @@
           target: document.body,
           props: {
             src: href,
-            close: traverseBack
+            close: function(traverse = true) {
+              traverse ? traverseBack() : unmount(modal, { outro: true })
+            }
           }
         })
-        return function () {
+        return function() {
           unmount(modal, { outro: true })
         }
       })
@@ -32,10 +34,10 @@
       delay,
       duration,
       easing: cubicOut,
-      // tick: (t) => {
-      //   node.style.setProperty("--progress", t);
-      // },
-      css: (t) => `--progress: ${t}`
+      tick: (t) => {
+        node.style.setProperty("--progress", t);
+      },
+      // css: (t) => `--progress: ${t}`
     };
   }
 </script>

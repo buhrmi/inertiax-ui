@@ -34,7 +34,7 @@ window.navigation.addEventListener('navigate', (event) => {
   if (event.navigationType === 'push') {
     garbageCollectOrphanedCallbacks()
   }
-  
+
   if (event.navigationType === 'traverse') {  
     const destKey = event.destination.key;
     const destIndex = event.destination.index;
