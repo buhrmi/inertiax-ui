@@ -4,7 +4,7 @@ A collection of Svelte components for [Inertia X](https://github.com/buhrmi/iner
 
 ## Modal
 
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal.
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Here you can see the included default style (dark.css), which renders as a bottom sheet on mobile, and centered on the page on desktop.
 
 ![dark.css demo](./dark.css.webp)
 
@@ -22,7 +22,7 @@ const modal = createModal({
 
 #### `modal` action
 
-The easiest way to create a modal is to use the `modal` action. This will automatically mount a Modal component in the document root.
+Inertia X UI also ships with a `modal` action. This is a small wrapper for `createModal` and passes the `href` attribute as the `src` prop.
 
 ```svelte
 <script>
