@@ -51,7 +51,9 @@
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
   <div class="inx-modal" aria-modal="true" role="dialog" transition:css>
-    <Frame {src} {close} />
+    <Frame {src} {close}>
+      <div class="inx-spinner" ></div>
+    </Frame>
     <nav>
       <button onclick={close} aria-label="Close modal">
         <div class="i-material-symbols-light:close-rounded">Close</div>
@@ -59,4 +61,3 @@
     </nav>
   </div>
 </div>
-

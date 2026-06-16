@@ -10,6 +10,16 @@
 const arrivers = {}
 const receders = {}
 
+function backTo(targetKey) {
+  if (navigation.currentEntry.key === targetKey) return
+  navigation.addEventListener('navigate', function handler(event) {
+    navigation.removeEventListener('navigate', handler)
+    if (event.destination.key !== targetKey) {
+      backTo(targetKey)
+    }
+  })
+  navigation.back()
+}
 
 export function push(arrive) {
   const currentState = history.state
@@ -17,7 +27,7 @@ export function push(arrive) {
   history.pushState(currentState, '', '')
   const currentKey = navigation.currentEntry.key
   arrivers[currentKey] = arrive
-  receders[currentKey] = arrive(() => navigation.traverseTo(previousKey))
+  receders[currentKey] = arrive(() => backTo(previousKey))
 }  
 
 function garbageCollectOrphanedCallbacks() {
@@ -43,7 +53,7 @@ window.navigation.addEventListener('navigate', (event) => {
     
     if (destIndex > currIndex) {
       // navigated forward. arrive the destination key
-      receders[destKey] = arrivers[destKey]?.(() => navigation.traverseTo(currKey))
+      receders[destKey] = arrivers[destKey]?.(() => backTo(currKey))
     } else if (destIndex < currIndex) {
       // navigated back. recede the current key
       receders[currKey]?.()
