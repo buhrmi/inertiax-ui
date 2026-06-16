@@ -4,12 +4,25 @@ A collection of Svelte components for [Inertia X](https://github.com/buhrmi/iner
 
 ## Modal
 
-
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. It can be created via the `modal` action.
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal.
 
 ![dark.css demo](./dark.css.webp)
 
-### Opening a modal
+### Creating a modal
+
+You can programmatically create a Modal using the `createModal(props)` function. All passed props are handed down to the Frame component, in addition to a `close` function (see below). 
+
+```js
+import { createModal } from 'inertiax-ui'
+
+const modal = createModal({
+  src: '/profile/edit'
+})
+```
+
+#### `modal` action
+
+The easiest way to create a modal is to use the `modal` action. This will automatically mount a Modal component in the document root.
 
 ```svelte
 <script>
@@ -31,18 +44,27 @@ The Modal component passes a `close` function down to its page component as a pr
 <button onclick={close}>Close</button>
 ```
 
+Note that there is no `close` function on the modal instance itself as components aren't usually able to unmount themselves.
+
 ## Installation
 
-To start using Inertia X UI, install the `inertiax-ui` package and import the CSS style you'd like to use. Inertia X UI ships with a default dark style that displays the modal as a bottom sheet.
+To start using Inertia X UI, install the `inertiax-ui` package and import the CSS style you'd like to use.
+
+### Styling
+
+Inertia X UI ships with a default [dark.css](./dark.css) style that displays the modal as a bottom sheet.
 
 ```js
 import 'inertiax-ui/dark.css'
 ```
 
-For full control, you can of course bring your own CSS styling. The key classes to target are:
+For full styling control, you can of course bring your own CSS. The key classes to target are:
 
 | Class | Element |
 |-------|---------|
 | `.inx-modal_wrapper` | Full-screen overlay container |
 | `.inx-modal_bg` | Clickable backdrop |
 | `.inx-modal` | The modal panel itself |
+| `.inx-spinner` | The loading animation spinner |
+
+Additionally, Svelte injects a `--progress` variable with the current progress of the modal in- and out-transition (0 to 1). You can use it to create your own in- and out-transitions.

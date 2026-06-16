@@ -9,20 +9,24 @@
     node.addEventListener('click', (e) => {
       e.preventDefault()
       const href = node.getAttribute('href')
-      push(function(traverseBack) {
-        const modal = mount(Modal, { 
-          target: document.body,
-          props: {
-            src: href,
-            close: function(traverse = true) {
-              traverse ? traverseBack() : unmount(modal, { outro: true })
-            }
+      createModal({ src: href })
+    })
+  }
+
+  export function createModal(props) {
+    push(function(traverseBack) {
+      const modal = mount(Modal, { 
+        target: document.body,
+        props: {
+          ...props,
+          close: function(traverse = true) {
+            traverse ? traverseBack() : unmount(modal, { outro: true })
           }
-        })
-        return function() {
-          unmount(modal, { outro: true })
         }
       })
+      return function() {
+        unmount(modal, { outro: true })
+      }
     })
   }
 
