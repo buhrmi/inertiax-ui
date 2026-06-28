@@ -5,6 +5,11 @@
   <h2>Scrollable Modal Content</h2>
   <p>This modal is capped at 90% of the viewport height and scrolls internally when content overflows.</p>
 
+  <div class="callout">
+    <h3>✨ Try Navigating</h3>
+    <p>Click the link below to go to the Welcome page, then press your browser's <strong>back button</strong>. You'll return here with your scroll position exactly where you left it — Inertia's scroll restoration at work.</p>
+  </div>
+
   <h3>Getting Started</h3>
   <p>Inertia X UI provides a set of Svelte components for building modal interfaces. The Modal component displays an Inertia X Frame within a modal overlay, with built-in support for browser history navigation.</p>
   <p>Install the package via npm and import the CSS style you'd like to use. The default dark.css displays the modal as a bottom sheet on mobile and centered on desktop.</p>
@@ -40,33 +45,6 @@
 </div>
 
 <style>
-  .page {
-    color: #e6edf3;
-    padding: 2rem 1.5rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #f0f6fc;
-  }
-  h3 {
-    font-size: 1.1rem;
-    color: #f0f6fc;
-    margin: 1.5rem 0 0.5rem;
-  }
-  p {
-    color: #8b949e;
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-  }
-  code {
-    color: #d2a8ff;
-    background: rgba(210, 168, 255, 0.1);
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
-    font-size: 0.85em;
-  }
   .class-list {
     list-style: none;
     padding: 0;
@@ -92,18 +70,22 @@
     font-size: 0.85rem;
     text-align: center;
   }
-  .page-nav {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #21262d;
+  .callout {
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(188, 140, 255, 0.08));
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
   }
-  .nav-link {
+  .callout h3 {
+    margin-top: 0;
     color: #58a6ff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
   }
-  .nav-link:hover {
-    text-decoration: underline;
+  .callout p {
+    color: #b0b8c4;
+    margin-bottom: 0;
+  }
+  .callout strong {
+    color: #e6edf3;
   }
 </style>

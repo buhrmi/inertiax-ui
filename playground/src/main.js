@@ -1,6 +1,7 @@
 import './app.css'
 import 'inertiax-ui/dark.css'
 import { createInertiaApp } from 'inertiax-svelte'
+import { mount } from 'svelte'
 
 const pages = import.meta.glob('./pages/*.svelte')
 
@@ -12,12 +13,15 @@ createInertiaApp({
     return importer()
   },
   page: {
-    component: 'Home',
+    component: 'Modal',
     props: { errors: {} },
     url: '/',
     version: null,
     rescuedProps: [],
     flash: {},
     rememberedState: {},
-  }
+  },
+  setup({ el, App, props }) {
+    mount(App, { target: el, props })
+  },
 })

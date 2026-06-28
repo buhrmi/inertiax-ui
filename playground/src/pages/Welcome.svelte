@@ -22,20 +22,6 @@
 </div>
 
 <style>
-  .page {
-    color: #e6edf3;
-    padding: 2rem 1.5rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #f0f6fc;
-  }
-  p {
-    color: #8b949e;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
   .feature-list {
     list-style: none;
     display: flex;
@@ -62,19 +48,5 @@
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: #484f58;
-  }
-  .page-nav {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #21262d;
-  }
-  .nav-link {
-    color: #58a6ff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .nav-link:hover {
-    text-decoration: underline;
   }
 </style>
