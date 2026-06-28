@@ -210,15 +210,4 @@
   .try-btn:active {
     transform: scale(0.97);
   }
-
-  .info {
-    color: #8b949e;
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .hint {
-    margin-top: 0.5rem;
-    font-style: italic;
-  }
 </style>
