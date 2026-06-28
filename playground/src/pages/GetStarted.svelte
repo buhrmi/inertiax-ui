@@ -26,7 +26,7 @@
   <p>Svelte injects a <code>--progress</code> CSS variable (0 to 1) during the transition. Use it to create custom in/out animations with <code>transform</code> or <code>opacity</code>.</p>
 
   <h3>Under the Hood</h3>
-  <p>The Modal uses <code>history.pushState</code> to create a new history entry when opened. A <code>navigate</code> event listener watches for browser back/forward navigation and mounts or unmounts the modal accordingly. This means the modal behaves like a native page — bookmarkable, shareable, and fully integrated with browser navigation.</p>
+  <p>The Modal uses <code>history.pushState</code> to create a new history entry when opened. A <code>navigate</code> event listener watches for browser back/forward navigation and mounts or unmounts the modal accordingly.</p>
 
   <p class="end-marker">— end of scrollable content —</p>
 
