@@ -2,6 +2,8 @@
 
 A collection of Svelte components for [Inertia X](https://github.com/buhrmi/inertiax).
 
+Demo: https://inertiax-ui.netlify.app
+
 ## Modal
 
 The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Here you can see the included default style (dark.css), which renders as a bottom sheet on mobile, and centered on the page on desktop.
