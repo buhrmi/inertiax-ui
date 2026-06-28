@@ -21,7 +21,7 @@
 &lt;/<span class="tag">a</span>&gt;</code></pre>
         </div>
         <div class="demo-result">
-          <a use:modal href="/welcome.json" class="try-btn">
+          <a use:modal href="/welcome.json" >
             Open Modal ↗
           </a>
         </div>
@@ -48,6 +48,15 @@
     </div>
   </section>
 
+  <section class="docs-section">
+    <h2>Documentation</h2>
+    <p>Full documentation, installation instructions, and source code are available on GitHub.</p>
+    <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="docs-link">
+      View on GitHub ↗
+    </a>
+
+    <p class="footnote">Inertia X UI is a work in progress by <a href="https://github.com/buhrmi" target="_blank">buhrmi</a>.</p>
+  </section>
 
 </main>
 
@@ -76,7 +85,7 @@
     margin-bottom: 3rem;
   }
 
-  .subtitle a {
+  a {
     color: #58a6ff;
     text-decoration: none;
   }
@@ -210,5 +219,60 @@
 
   .try-btn:active {
     transform: scale(0.97);
+  }
+
+  /* ---- docs section ---- */
+
+  .docs-section {
+    padding: 2rem 0;
+    border-top: 1px solid #30363d;
+  }
+
+  .docs-section h2 {
+    font-size: 1.2rem;
+    color: #f0f6fc;
+    margin-bottom: 0.5rem;
+  }
+
+  .docs-section p {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .docs-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1.5rem;
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #e6edf3;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .docs-link:hover {
+    background: #30363d;
+    border-color: #58a6ff;
+  }
+
+  .footnote {
+    margin-top: 1.5rem;
+    color: #484f58;
+    font-size: 0.8rem;
+  }
+
+  .footnote a {
+    color: #8b949e;
+    text-decoration: none;
+  }
+
+  .footnote a:hover {
+    color: #58a6ff;
+    text-decoration: underline;
   }
 </style>
