@@ -15,7 +15,6 @@
 
   export function createModal(props) {
     push(function(traverseBack) {
-      console.log("mounting with state:", history.state)
       const modal = mount(Modal, { 
         target: document.body,
         props: {

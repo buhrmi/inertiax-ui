@@ -9,7 +9,7 @@
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <span class="brand-icon">📦</span>
+      <span class="brand-icon"><img src="/logo.png" alt="Inertia X UI Logo" class="logo"/></span>
       <span class="brand-text">Inertia X UI</span>
     </div>
     <nav class="sidebar-nav">
@@ -43,6 +43,11 @@
   .layout {
     display: flex;
     min-height: 100vh;
+  }
+
+  .logo {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .sidebar {
