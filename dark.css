@@ -37,6 +37,11 @@
   width: 100%;
 }
 
+
+body:has(.inx-modal) {
+  overflow: hidden;
+}
+
 .inx-modal nav button {
   font-size: 1.5rem;
 }
