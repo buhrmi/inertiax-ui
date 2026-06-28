@@ -4,7 +4,7 @@
 
 <div class="page">
   <h2>Welcome to Inertia X UI</h2>
-  <p>This modal is powered by Inertia X, a protocol that enables seamless page transitions and modal navigation in web applications.</p>
+  <p>This modal is powered by Inertia X, a fork of Inertia that adds the Frame component. All content here is rendered within an Inertia X frame.</p>
 
   <ul class="feature-list">
     <li>Native browser history integration</li>
