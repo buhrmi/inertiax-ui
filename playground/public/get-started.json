@@ -1,9 +1,9 @@
 {
-  "component": "ScrollableContent",
+  "component": "GetStarted",
   "props": {
     "errors": {}
   },
-  "url": "/scrollable.json",
+  "url": "/get-started.json",
   "version": null,
   "rescuedProps": [],
   "flash": {},

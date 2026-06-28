@@ -4,7 +4,12 @@
 
 <div class="page">
   <h2>Welcome to Inertia X UI</h2>
-  <p>This modal is powered by Inertia X. This content is rendered within an Inertia X frame.</p>
+  <p>This modal is powered by Inertia X, its content is rendered within an Inertia X Frame component.</p>
+
+  <div class="callout">
+    <h3>✨ Try Navigating</h3>
+    <p>Click the link below to go to the Get Started page, then press your browser's <strong>back button</strong>. You'll return here with your scroll position exactly where you left it — Inertia's scroll restoration at work.</p>
+  </div>
 
   <ul class="feature-list">
     <li>Native browser history integration</li>
@@ -17,7 +22,7 @@
   <p class="footnote">Navigate back, or press the ✕ button or the backdrop to close the modal.</p>
 
   <nav class="page-nav">
-    <a href="/scrollable.json" class="nav-link">Scrollable Content →</a>
+    <a href="/get-started.json" class="nav-link">Get Started →</a>
   </nav>
 </div>
 
@@ -48,5 +53,23 @@
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: #484f58;
+  }
+  .callout {
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(188, 140, 255, 0.08));
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+  }
+  .callout h3 {
+    margin-top: 0;
+    color: #58a6ff;
+  }
+  .callout p {
+    color: #b0b8c4;
+    margin-bottom: 0;
+  }
+  .callout strong {
+    color: #e6edf3;
   }
 </style>
