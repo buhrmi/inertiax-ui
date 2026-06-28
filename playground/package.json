@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "inertiax-svelte": "^11.0.24",
+    "inertiax-svelte": "^11.0.27",
     "inertiax-ui": "file:..",
     "svelte": "^5.0.0"
   },

@@ -3,14 +3,14 @@ import 'inertiax-ui/dark.css'
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
 
-const pages = import.meta.glob('./pages/*.svelte', { eager: true })
+const pages = import.meta.glob('./pages/*.svelte')
 
 createInertiaApp({
   resolve: (name) => {
     const key = `./pages/${name}.svelte`
-    const mod = pages[key]
-    if (!mod) throw new Error(`Page not found: ${name}`)
-    return mod
+    const importer = pages[key]
+    if (!importer) throw new Error(`Page not found: ${name}`)
+    return importer()
   },
   page: {
     component: 'Modal',
