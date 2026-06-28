@@ -36,17 +36,18 @@
           <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 <span class="fn">createModal</span>({`{
-  src: '/welcome.json'
+  src: '/scrollable.json'
 }`})</code></pre>
         </div>
         <div class="demo-result">
-          <button class="try-btn" onclick={() => createModal({ src: '/welcome.json' })}>
-            Open Modal ↗
+          <button class="try-btn" onclick={() => createModal({ src: '/scrollable.json' })}>
+            Open Scrollable Modal ↗
           </button>
         </div>
       </div>
     </div>
   </section>
+
 
 </main>
 
