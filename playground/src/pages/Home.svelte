@@ -10,39 +10,36 @@
     <h2>Modals</h2>
 
     <div class="demo-block">
-      <h3 class="demo-title">modal action</h3>
-      <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal — no JavaScript handler needed.</p>
       <div class="demo-row">
-        <div class="demo-code">
-          <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+        <div class="demo-left">
+          <div class="demo-col">
+            <h3 class="demo-title">modal action</h3>
+            <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal — no JavaScript handler needed.</p>
+            <div class="demo-code">
+              <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/welcome.json"</span> <span class="attr">use:modal</span>&gt;
   Open Modal
 &lt;/<span class="tag">a</span>&gt;</code></pre>
-        </div>
-        <div class="demo-result">
-          <a use:modal href="/welcome.json" >
-            Open Modal ↗
-          </a>
-        </div>
-      </div>
-    </div>
+            </div>
+          </div>
 
-    <div class="demo-block">
-      <h3 class="demo-title">createModal</h3>
-      <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
-      <div class="demo-row">
-        <div class="demo-code">
-          <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+          <div class="demo-col">
+            <h3 class="demo-title">createModal</h3>
+            <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
+            <div class="demo-code">
+              <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 <span class="fn">createModal</span>({`{
-  src: '/scrollable.json'
+  src: '/welcome.json'
 }`})</code></pre>
+            </div>
+          </div>
         </div>
         <div class="demo-result">
-          <button class="try-btn" onclick={() => createModal({ src: '/scrollable.json' })}>
-            Open Scrollable Modal ↗
-          </button>
+          <a use:modal href="/welcome.json" class="try-btn">
+            Open Modal ↗
+          </a>
         </div>
       </div>
     </div>
@@ -124,10 +121,6 @@
     border-bottom: 1px solid #30363d;
   }
 
-  .demo-block + .demo-block {
-    margin-top: 2rem;
-  }
-
   .demo-title {
     font-size: 0.95rem;
     font-weight: 600;
@@ -162,13 +155,22 @@
     }
   }
 
+  .demo-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .demo-col {
+    display: flex;
+    flex-direction: column;
+  }
+
   .demo-code {
     background: #0d1117;
     border: 1px solid #30363d;
     border-radius: 10px;
     overflow-x: auto;
-    display: flex;
-    align-items: center;
   }
 
   .demo-code pre {

@@ -4,7 +4,7 @@
 
 <div class="page">
   <h2>Welcome to Inertia X UI</h2>
-  <p>This modal is powered by Inertia X, a fork of Inertia that adds the Frame component. All content here is rendered within an Inertia X frame.</p>
+  <p>This modal is powered by Inertia X. This content is rendered within an Inertia X frame.</p>
 
   <ul class="feature-list">
     <li>Native browser history integration</li>
@@ -15,6 +15,10 @@
   </ul>
 
   <p class="footnote">Navigate back, or press the ✕ button or the backdrop to close the modal.</p>
+
+  <nav class="page-nav">
+    <a href="/scrollable.json" class="nav-link">Scrollable Content →</a>
+  </nav>
 </div>
 
 <style>
@@ -58,5 +62,19 @@
     margin-top: 1.5rem;
     font-size: 0.85rem;
     color: #484f58;
+  }
+  .page-nav {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #21262d;
+  }
+  .nav-link {
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
   }
 </style>

@@ -6,9 +6,12 @@ export default defineConfig({
   plugins: [svelte()],
   resolve: {
     alias: {
-      // Resolve inertiax-svelte from the playground when imported
-      // from the symlinked inertiax-ui parent package
       'inertiax-svelte': resolve(__dirname, 'node_modules/inertiax-svelte'),
+    },
+  },
+  server: {
+    headers: {
+      'X-Inertia': 'true',
     },
   },
   ssr: {

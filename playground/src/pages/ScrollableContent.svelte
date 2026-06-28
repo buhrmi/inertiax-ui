@@ -33,6 +33,10 @@
   <p>The Modal uses <code>history.pushState</code> to create a new history entry when opened. A <code>navigate</code> event listener watches for browser back/forward navigation and mounts or unmounts the modal accordingly. This means the modal behaves like a native page — bookmarkable, shareable, and fully integrated with browser navigation.</p>
 
   <p class="end-marker">— end of scrollable content —</p>
+
+  <nav class="page-nav">
+    <a href="/welcome.json" class="nav-link">← Welcome</a>
+  </nav>
 </div>
 
 <style>
@@ -87,5 +91,19 @@
     color: #484f58;
     font-size: 0.85rem;
     text-align: center;
+  }
+  .page-nav {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #21262d;
+  }
+  .nav-link {
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
   }
 </style>

@@ -54,8 +54,8 @@
 <div class="inx-modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
-  <div class="inx-modal" aria-modal="true" role="dialog" transition:css>
-    <Frame {src} {close}>
+  <div class="inx-modal" aria-modal="true" scroll-region role="dialog" transition:css>
+    <Frame {src} {close} visitOptions={{ replace: false }} id="modal">
       <div class="inx-spinner" ></div>
     </Frame>
     <nav>
