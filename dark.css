@@ -27,6 +27,16 @@
   justify-content: flex-end;
 }
 
+.inx-modal {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+}
+
 .inx-modal nav button {
   font-size: 1.5rem;
 }

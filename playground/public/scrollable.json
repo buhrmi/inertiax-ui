@@ -1,0 +1,11 @@
+{
+  "component": "ScrollableContent",
+  "props": {
+    "errors": {}
+  },
+  "url": "/scrollable.json",
+  "version": null,
+  "rescuedProps": [],
+  "flash": {},
+  "rememberedState": {}
+}
