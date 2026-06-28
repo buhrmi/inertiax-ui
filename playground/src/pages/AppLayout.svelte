@@ -22,6 +22,10 @@
     </div>
   </aside>
   <main class="main">
+    <div class="theme-notice">
+      <span>🎨 Theme: <a href="https://github.com/buhrmi/inertiax-ui/blob/main/dark.css" target="_blank">dark.css ↗</a></span>
+      <span class="theme-notice-hint">Import your own CSS to override</span>
+    </div>
     {@render children?.()}
 
     <footer class="docs-section">
@@ -122,6 +126,33 @@
     padding: 2.5rem 2rem;
   }
 
+  .theme-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    margin: -2.5rem -2rem 2rem;
+    background: rgba(88, 166, 255, 0.06);
+    border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+    font-size: 0.8rem;
+    color: #8b949e;
+  }
+
+  .theme-notice a {
+    color: #58a6ff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .theme-notice a:hover {
+    text-decoration: underline;
+  }
+
+  .theme-notice-hint {
+    color: #484f58;
+  }
+
   .docs-section {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -177,6 +208,12 @@
   @media (max-width: 480px) {
     .main {
       padding: 1.5rem 1rem;
+    }
+
+    .theme-notice {
+      margin: -1.5rem -1rem 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
