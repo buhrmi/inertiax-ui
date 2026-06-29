@@ -1,9 +1,9 @@
 {
-  "component": "GetStarted",
+  "component": "ModalContent",
   "props": {
     "errors": {}
   },
-  "url": "/get-started.json",
+  "url": "/modal-content.json",
   "version": null,
   "rescuedProps": [],
   "flash": {},

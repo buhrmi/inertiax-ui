@@ -1,20 +1,27 @@
 <script>
+  import { usePage } from 'inertiax-svelte'
+
   let { children } = $props()
 
   const pages = [
-    { name: 'Modal', path: '/modal', label: 'Modal' },
+    { name: 'Modal', path: '/modal.json', label: 'Modal' },
   ]
+
+  let page = usePage()
+  let currentUrl = $derived(page.url)
 </script>
 
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <span class="brand-icon"><img src="/logo.png" alt="Inertia X UI Logo" class="logo"/></span>
-      <span class="brand-text">Inertia X UI</span>
+      <a href="/welcome.json" class="brand-link">
+        <span class="brand-icon"><img src="/logo.png" alt="Inertia X UI Logo" class="logo"/></span>
+        <span class="brand-text">Inertia X UI</span>
+      </a>
     </div>
     <nav class="sidebar-nav">
       {#each pages as page}
-        <a href={page.path} class="sidebar-link" aria-current="page" data-inertia-ignore>{page.label}</a>
+        <a href={page.path} class="sidebar-link" aria-current={currentUrl === page.path ? 'page' : undefined}>{page.label}</a>
       {/each}
     </nav>
     <div class="sidebar-footer">
@@ -66,9 +73,15 @@
   .sidebar-brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     padding: 0 1.25rem;
     margin-bottom: 1.5rem;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
   }
 
   .brand-icon {

@@ -1,9 +1,9 @@
 {
-  "component": "EditProfile",
+  "component": "ModalContent2",
   "props": {
     "errors": {}
   },
-  "url": "/edit-profile.json",
+  "url": "/modal-content-2.json",
   "version": null,
   "rescuedProps": [],
   "flash": {},

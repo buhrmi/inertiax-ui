@@ -12,41 +12,66 @@ body {
   background: #0d1117;
   color: #e6edf3;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ---- modal page content ---- */
+/* ---- typography ---- */
 
-.page {
-  color: #e6edf3;
-  padding: 2rem 1.5rem;
-}
-
-.page h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
   color: #f0f6fc;
 }
 
-.page h3 {
+h3 {
   font-size: 1.1rem;
   color: #f0f6fc;
   margin: 1.5rem 0 0.5rem;
 }
 
-.page p {
+p {
   color: #8b949e;
   line-height: 1.7;
   margin-bottom: 0.85rem;
   font-size: 0.95rem;
 }
 
-.page code {
+a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
   color: #d2a8ff;
   background: rgba(210, 168, 255, 0.1);
   padding: 0.1em 0.35em;
   border-radius: 4px;
   font-size: 0.85em;
 }
+
+pre {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0 1.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+pre code {
+  color: #e6edf3;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background: transparent;
+  padding: 0;
+}
+
+/* ---- shared components ---- */
 
 .page-nav {
   margin-top: 1.5rem;
@@ -63,4 +88,54 @@ body {
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature-list li {
+  color: #8b949e;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+}
+
+.feature-list strong {
+  color: #e6edf3;
+}
+
+.feature-list code {
+  color: #a5d6ff;
+  background: transparent;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.class-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+
+.class-list li {
+  padding: 0.5rem 0.75rem;
+  color: #8b949e;
+  font-size: 0.9rem;
+  border-left: 2px solid #30363d;
+  margin-bottom: 0.25rem;
+}
+
+.class-list code {
+  color: #a5d6ff;
+  background: transparent;
+  padding: 0;
+  font-size: 0.9em;
 }

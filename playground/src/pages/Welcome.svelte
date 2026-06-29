@@ -1,75 +1,48 @@
-<script>
-  const { close } = $props()
+<script module>
+  import AppLayout from '../layout.svelte'
+  export const layout = AppLayout
 </script>
 
-<div class="page">
-  <h2>Welcome to Inertia X UI</h2>
-  <p>This modal is powered by Inertia X, its content is rendered within an Inertia X Frame component.</p>
+<h2>Getting Started</h2>
 
-  <div class="callout">
-    <h3>✨ Try Navigating</h3>
-    <p>Click the link below to go to the Get Started page, then press your browser's <strong>back button</strong>. You'll return here with your scroll position exactly where you left it — Inertia's scroll restoration at work.</p>
-  </div>
+<h3>What is Inertia.js?</h3>
+<p><a href="https://inertiajs.com/">Inertia.js</a> lets you build single-page apps using classic server-side routing and controllers — no API needed. You write server-rendered pages like you always have, and Inertia handles the client-side navigation, component swapping, and history management. Think of it as the glue between your server-side framework (Laravel, Rails, etc.) and your Svelte components.</p>
 
-  <ul class="feature-list">
-    <li>Native browser history integration</li>
-    <li>Mobile bottom-sheet on small screens</li>
-    <li>Back/forward navigation support</li>
-    <li>Smooth CSS transitions</li>
-    <li>Lightweight and fast</li>
-  </ul>
+<h3>What does Inertia X add?</h3>
+<p>Inertia X is a fork of Inertia.js that adds several features to the Svelte adapter:</p>
+<ul class="feature-list">
+  <li><strong>&lt;Frame&gt;</strong> — multiple independent Inertia page regions on the same document. Each frame has its own router, history, and page state. Use cases: modals, sidebars, slide-out panels, multi-pane layouts.</li>
+  <li><strong>Global click handler</strong> — plain <code>&lt;a&gt;</code> clicks inside a frame are automatically intercepted and turned into frame-scoped visits. No <code>&lt;Link&gt;</code> component needed.</li>
+  <li><strong>visitOptions</strong> — set default visit behavior per frame (replace vs push, scroll preservation, URL updates).</li>
+  <li><strong>History-aware mount</strong> — frames restore their previous page and scroll position from the browser history stack on mount, surviving reloads and remounts.</li>
+</ul>
 
-  <p class="footnote">Navigate back, or press the ✕ button or the backdrop to close the modal.</p>
+<h3>What is Inertia X UI?</h3>
+<p>Inertia X UI is a companion UI library featuring Svelte components built on Inertia X. It provides ready-made patterns like modals, detail views, and overlays — all integrated with the browser's Navigation API for back/forward support out of the box.</p>
 
-  <nav class="page-nav">
-    <a href="/get-started.json" class="nav-link">Get Started →</a>
-  </nav>
-</div>
+<h3>Quick Setup</h3>
+<p>Install the package:</p>
+<pre><code>npm install inertiax-ui</code></pre>
 
-<style>
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding: 0;
-  }
-  .feature-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    font-size: 0.95rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    color: #3fb950;
-    font-weight: bold;
-  }
-  .footnote {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: #484f58;
-  }
-  .callout {
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(188, 140, 255, 0.08));
-    border: 1px solid rgba(88, 166, 255, 0.2);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    margin: 1.25rem 0;
-  }
-  .callout h3 {
-    margin-top: 0;
-    color: #58a6ff;
-  }
-  .callout p {
-    color: #b0b8c4;
-    margin-bottom: 0;
-  }
-  .callout strong {
-    color: #e6edf3;
-  }
-</style>
+<p>Import a theme and the components you need:</p>
+<pre><code>import 'inertiax-ui/dark.css'
+import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
+
+<h3>Opening a Modal</h3>
+<p>The <code>createModal</code> function opens any Inertia X page in a modal overlay:</p>
+<pre><code>createModal({`{ src: '/welcome.json' }`})</code></pre>
+
+<p>The <code>use:modal</code> action does the same from an anchor tag — no event handler needed:</p>
+<pre><code>&lt;a href="/welcome.json" use:modal&gt;Open Modal&lt;/a&gt;</code></pre>
+
+<h3>Styling</h3>
+<p>Inertia X UI ships with a <code>dark.css</code> theme. Override any CSS custom property or write your own theme from scratch. The key classes to target:</p>
+
+<ul class="class-list">
+  <li><code>.inx-modal_wrapper</code> — full-screen overlay container</li>
+  <li><code>.inx-modal_bg</code> — clickable backdrop</li>
+  <li><code>.inx-modal</code> — the modal panel</li>
+  <li><code>.inx-spinner</code> — loading indicator</li>
+</ul>
+
+<p>Svelte injects a <code>--progress</code> CSS variable (0–1) during transitions — use it with <code>transform</code> or <code>opacity</code> for custom animations.</p>

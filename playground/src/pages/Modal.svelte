@@ -1,49 +1,53 @@
-<script>
-  import { modal, createModal } from 'inertiax-ui'
-  import AppLayout from './AppLayout.svelte'
+<script module>
+  import AppLayout from '../layout.svelte'
+  export const layout = AppLayout
 </script>
 
-<AppLayout>
-  <section class="demo-section">
-    <h2>Modal</h2>
-    <p class="subtitle">Display any Inertia X page inside a modal overlay. Works as a bottom sheet on mobile, centered dialog on desktop.</p>
+<script>
+  import { modal } from 'inertiax-ui'
+</script>
 
-    <div class="demo-block">
-      <div class="demo-result">
-        <a use:modal href="/welcome.json" class="try-btn">
-          Open Modal ↗
-        </a>
+
+<section class="demo-section">
+  <h2>Modal</h2>
+  <p class="subtitle">Display any Inertia X page inside a modal overlay. Works as a bottom sheet on mobile, centered dialog on desktop.</p>
+
+  <div class="demo-block">
+    <div class="demo-result">
+      <a use:modal href="/modal-content.json" class="try-btn">
+        Open Modal ↗
+      </a>
+    </div>
+
+    <div class="demo-row">
+      <div class="demo-col">
+        <h3 class="demo-title">modal action</h3>
+        <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal — no JavaScript handler needed.</p>
+        <div class="demo-code">
+          <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+
+&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/modal-content.json"</span> <span class="attr">use:modal</span>&gt;
+Open Modal
+&lt;/<span class="tag">a</span>&gt;</code></pre>
+        </div>
       </div>
 
-      <div class="demo-row">
-        <div class="demo-col">
-          <h3 class="demo-title">modal action</h3>
-          <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal — no JavaScript handler needed.</p>
-          <div class="demo-code">
-            <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
-
-&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/welcome.json"</span> <span class="attr">use:modal</span>&gt;
-  Open Modal
-&lt;/<span class="tag">a</span>&gt;</code></pre>
-          </div>
-        </div>
-
-        <div class="demo-col">
-          <h3 class="demo-title">createModal</h3>
-          <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
-          <div class="demo-code">
-            <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+      <div class="demo-col">
+        <h3 class="demo-title">createModal</h3>
+        <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
+        <div class="demo-code">
+          <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 <span class="fn">createModal</span>({`{
-  src: '/welcome.json'
+src: '/modal-content.json'
 }`})</code></pre>
-          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</AppLayout>
+
 
 <style>
   .demo-section {
