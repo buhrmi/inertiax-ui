@@ -4,5 +4,5 @@
   publish = "dist"
 
 [[edge_functions]]
-  function = "inertia-guard"
+  function = "inertia"
   path = "/*"
