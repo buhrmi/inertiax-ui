@@ -1,0 +1,11 @@
+{
+  "component": "Modal",
+  "props": {
+    "errors": {}
+  },
+  "url": "/modal.json",
+  "version": null,
+  "rescuedProps": [],
+  "flash": {},
+  "rememberedState": {}
+}
