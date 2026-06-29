@@ -8,23 +8,19 @@ export default async function (request: Request, context: Context) {
     return
   }
 
-  // JSON page objects
-  if (url.pathname.endsWith('.json')) {
-    if (request.headers.get('x-inertia')) {
-      // Inertia XHR — fetch and serve the JSON file directly
-      const resp = await fetch(new URL(url.pathname, context.site.url))
-      return new Response(resp.body, {
-        status: resp.status,
-        headers: { ...Object.fromEntries(resp.headers), 'x-inertia': 'true' },
-      })
-    }
-    // Browser request — serve the SPA instead of raw JSON
-    return new Response(
-      await fetch(new URL('/index.html', context.site.url)).then(r => r.text()),
-      { status: 200, headers: { 'content-type': 'text/html', 'x-inertia': 'true' } },
-    )
+  // JSON page objects requested via Inertia XHR
+  if (url.pathname.endsWith('.json') && request.headers.get('x-inertia')) {
+    const resp = await fetch(new URL(url.pathname, context.site.url))
+    return new Response(resp.body, {
+      status: resp.status,
+      headers: { 'content-type': 'application/json', 'x-inertia': 'true' },
+    })
   }
 
-  // All other routes pass through (SPA fallback in redirect rules will handle)
-  return
+  // Everything else (browser requests, SPA routes) — serve index.html
+  const html = await fetch(new URL('/index.html', context.site.url)).then(r => r.text())
+  return new Response(html, {
+    status: 200,
+    headers: { 'content-type': 'text/html' },
+  })
 }

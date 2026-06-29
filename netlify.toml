@@ -6,8 +6,3 @@
 [[edge_functions]]
   function = "inertia-guard"
   path = "/*"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
