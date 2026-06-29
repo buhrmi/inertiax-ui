@@ -94,11 +94,8 @@
   <pre><code>import 'inertiax-ui/dark.css'
 import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
 
-  <p>Open a modal from a link with zero JavaScript:</p>
-  <pre><code>&lt;a href="/welcome.json" use:modal&gt;Open Modal&lt;/a&gt;</code></pre>
-
-  <p>Or programmatically:</p>
-  <pre><code>createModal({`{ src: '/welcome.json' }`})</code></pre>
+  <p>Use <code>use:modal</code> on links or <code>createModal()</code> to open any Inertia X page in a modal overlay.</p>
+  <a href="/modal.json" class="hero-btn primary">See examples & demo →</a>
 </section>
 
 <!-- Styling -->

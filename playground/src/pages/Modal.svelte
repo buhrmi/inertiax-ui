@@ -8,7 +8,7 @@
   import { toast, Toaster } from 'svelte-sonner'
 </script>
 
-<Toaster />
+<Toaster richColors />
 
 <section class="demo-section">
   <h2>Modal</h2>
