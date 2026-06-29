@@ -2,6 +2,9 @@ import './app.css'
 import 'inertiax-ui/dark.css'
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
+import { createModal } from 'inertiax-ui'
+
+window.__test__ = { createModal }
 
 const pages = import.meta.glob('./pages/*.svelte', { eager: true })
 const pageObjects = import.meta.glob('../public/*.json', { eager: true })

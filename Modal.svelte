@@ -5,28 +5,32 @@
   import { cubicOut } from 'svelte/easing';
   import { push } from './history'
 
-  export function modal(node) {
+  export function modal(node, props) {
     node.addEventListener('click', (e) => {
       e.preventDefault()
       const href = node.getAttribute('href')
-      createModal({ src: href })
+      createModal({ src: href, ...props })
     })
   }
 
   export function createModal(props) {
+    const onclose = props.onclose || (() => {})
     push(function(traverseBack) {
-      const modal = mount(Modal, { 
+      let modal = null
+      function close() {
+        unmount(modal, { outro: true })
+        onclose()
+      }
+      modal = mount(Modal, { 
         target: document.body,
         props: {
           ...props,
           close: function(traverse = true) {
-            traverse ? traverseBack() : unmount(modal, { outro: true })
+            traverse ? traverseBack() : close()
           }
         }
       })
-      return function() {
-        unmount(modal, { outro: true })
-      }
+      return close
     })
   }
 

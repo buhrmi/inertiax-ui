@@ -5,8 +5,10 @@
 
 <script>
   import { modal } from 'inertiax-ui'
+  import { toast, Toaster } from 'svelte-sonner'
 </script>
 
+<Toaster />
 
 <section class="demo-section">
   <h2>Modal</h2>
@@ -14,7 +16,7 @@
 
   <div class="demo-block">
     <div class="demo-result">
-      <a use:modal href="/modal-content.json" class="try-btn">
+      <a use:modal={{ onclose: () => toast.success('Modal closed!') }} href="/modal-content.json" class="try-btn">
         Open Modal ↗
       </a>
     </div>
@@ -22,14 +24,16 @@
     <div class="demo-row">
       <div class="demo-col">
         <h3 class="demo-title">modal action</h3>
-        <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal — no JavaScript handler needed.</p>
+        <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal. Pass an object to add options like <code>onclose</code>.</p>
         <div class="demo-code">
           <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/modal-content.json"</span> <span class="attr">use:modal</span>&gt;
 Open Modal
 &lt;/<span class="tag">a</span>&gt;</code></pre>
-        </div>
+
+      </div>
+        
       </div>
 
       <div class="demo-col">
@@ -41,6 +45,31 @@ Open Modal
 <span class="fn">createModal</span>({`{
 src: '/modal-content.json'
 }`})</code></pre>
+        </div>
+
+      </div>
+
+      <div class="demo-col">
+        <h3 class="demo-title">onclose callback</h3>
+        <p class="demo-desc">Pass <code>onclose</code> to run logic when the modal closes — reload the parent page, reset state, or clean up.</p>
+        <div class="demo-code">
+          <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+<span class="kw">import</span> {`{ router }`} <span class="kw">from</span> <span class="str">'inertiax-svelte'</span>
+
+<span class="fn">createModal</span>({`{
+  src: '/profile/edit',
+  onclose() {
+    router.reload()
+  }
+}`})</code></pre>
+        </div>
+        <p class="demo-desc">You can also pass <code>onclose</code> as an option to the <code>use:modal</code> action:</p>
+        <div class="demo-code">
+          <pre><code><span class="kw">import</span> {`{ router }`} <span class="kw">from</span> <span class="str">'inertiax-svelte'</span>
+
+&lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/modal-content.json"</span> <span class="attr">use:modal</span>=<span class="fn">&#123;&#123; onclose: router.reload &#125;&#125;</span>&gt;
+Open Modal
+&lt;/<span class="tag">a</span>&gt;</code></pre>
         </div>
       </div>
     </div>
@@ -90,6 +119,7 @@ src: '/modal-content.json'
     line-height: 1.5;
   }
 
+
   .demo-desc code {
     color: #d2a8ff;
     background: rgba(210, 168, 255, 0.1);
@@ -120,6 +150,7 @@ src: '/modal-content.json'
     border: 1px solid #30363d;
     border-radius: 10px;
     overflow-x: auto;
+    margin-bottom: 1.25rem;
   }
 
   .demo-code pre {
@@ -149,6 +180,7 @@ src: '/modal-content.json'
     border: 1px solid #30363d;
     border-radius: 10px;
     padding: 1.5rem;
+    gap: 0.75rem;
     margin-bottom: 1.5rem;
   }
 
@@ -172,4 +204,5 @@ src: '/modal-content.json'
   .try-btn:active {
     transform: scale(0.97);
   }
+
 </style>

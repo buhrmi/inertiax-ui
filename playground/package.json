@@ -5,14 +5,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test"
   },
   "dependencies": {
     "inertiax-svelte": "^11.0.27",
     "inertiax-ui": "file:..",
-    "svelte": "^5.0.0"
+    "svelte": "^5.0.0",
+    "svelte-sonner": "^1.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "vite": "^6.0.0"
   },

@@ -34,6 +34,17 @@ Inertia X UI also ships with a `modal` action. This is a small wrapper for `crea
 <a href="/profile/edit" use:modal>Edit profile</a>
 ```
 
+You can also pass options like `onclose`:
+
+```svelte
+<script>
+  import { modal } from 'inertiax-ui'
+  import { router } from 'inertiax-svelte'
+</script>
+
+<a href="/profile/edit" use:modal={{ onclose: () => router.reload() }}>Edit profile</a>
+```
+
 ### Closing a modal
 
 The Modal component passes a `close` function down to its page component as a prop. You can call this function to close it. Behind the scenes, calling `close` will use the browsers Navigation API to traverse the history back to before the modal was opened, which in turn triggers callbacks that unmount the modal. Alternatively, you can call `close(false)` to close the modal without going back in history. This will prevent forward-navigation from re-opening the modal.
@@ -47,6 +58,23 @@ The Modal component passes a `close` function down to its page component as a pr
 ```
 
 Note that there is no `close` function on the modal instance itself as components aren't usually able to unmount themselves.
+
+
+### `onclose` callback
+
+Pass an `onclose` callback to run custom logic when the modal closes. This fires regardless of how the modal was closed — via the close button, backdrop click, or browser back button.
+
+```js
+import { createModal } from 'inertiax-ui'
+import { router } from 'inertiax-svelte'
+
+createModal({
+  src: '/profile/edit',
+  onclose: () => router.reload()
+})
+```
+
+Common use cases: reloading the parent page after an edit, resetting form state, or cleaning up side effects.
 
 ## Installation
 
