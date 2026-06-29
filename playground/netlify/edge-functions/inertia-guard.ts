@@ -8,19 +8,13 @@ export default async function (request: Request, context: Context) {
     return
   }
 
-  // JSON page objects requested via Inertia XHR
+  // JSON page objects requested via Inertia XHR — serve file with header
   if (url.pathname.endsWith('.json') && request.headers.get('x-inertia')) {
-    const resp = await fetch(new URL(url.pathname, context.site.url))
-    return new Response(resp.body, {
-      status: resp.status,
-      headers: { 'content-type': 'application/json', 'x-inertia': 'true' },
-    })
+    const response = await context.next()
+    response.headers.set('x-inertia', 'true')
+    return response
   }
 
   // Everything else (browser requests, SPA routes) — serve index.html
-  const html = await fetch(new URL('/index.html', context.site.url)).then(r => r.text())
-  return new Response(html, {
-    status: 200,
-    headers: { 'content-type': 'text/html' },
-  })
+  return context.rewrite('/index.html')
 }

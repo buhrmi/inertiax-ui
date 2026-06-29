@@ -3,46 +3,244 @@
   export const layout = AppLayout
 </script>
 
-<h2>Getting Started</h2>
+<!-- Hero -->
+<section class="hero">
+  <h1>Inertia X UI</h1>
+  <p class="tagline">Svelte components for Inertia X. Modals, overlays, and multi-frame layouts — with native browser history built in.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">View on GitHub</a>
+    <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm ↗</a>
+  </div>
+</section>
 
-<h3>What is Inertia.js?</h3>
-<p><a href="https://inertiajs.com/">Inertia.js</a> lets you build single-page apps using classic server-side routing and controllers — no API needed. You write server-rendered pages like you always have, and Inertia handles the client-side navigation, component swapping, and history management. Think of it as the glue between your server-side framework (Laravel, Rails, etc.) and your Svelte components.</p>
+<!-- Component Index -->
+<section class="component-index">
+  <h2>Components</h2>
+  <div class="component-grid">
+    <a href="/modal.json" class="component-card">
+      <h3>Modal</h3>
+      <p>Display any Inertia X page inside a modal overlay. Opens as a bottom sheet on mobile, centered dialog on desktop.</p>
+      <ul class="card-features">
+        <li>Back/forward navigation support</li>
+        <li>Scroll restoration</li>
+        <li><code>use:modal</code> action on links</li>
+        <li><code>createModal()</code> for programmatic use</li>
+      </ul>
+      <span class="card-link">View demo →</span>
+    </a>
 
-<h3>What does Inertia X add?</h3>
-<p>Inertia X is a fork of Inertia.js that adds several features to the Svelte adapter:</p>
-<ul class="feature-list">
-  <li><strong>&lt;Frame&gt;</strong> — multiple independent Inertia page regions on the same document. Each frame has its own router, history, and page state. Use cases: modals, sidebars, slide-out panels, multi-pane layouts.</li>
-  <li><strong>Global click handler</strong> — plain <code>&lt;a&gt;</code> clicks inside a frame are automatically intercepted and turned into frame-scoped visits. No <code>&lt;Link&gt;</code> component needed.</li>
-  <li><strong>visitOptions</strong> — set default visit behavior per frame (replace vs push, scroll preservation, URL updates).</li>
-  <li><strong>History-aware mount</strong> — frames restore their previous page and scroll position from the browser history stack on mount, surviving reloads and remounts.</li>
-</ul>
+    <div class="component-card coming-soon">
+      <h3>Detail</h3>
+      <p>Master-detail view — inline panel on desktop, full-screen slide-in on mobile. Navigate entries with back/forward.</p>
+      <span class="card-badge">Coming soon</span>
+    </div>
 
-<h3>What is Inertia X UI?</h3>
-<p>Inertia X UI is a companion UI library featuring Svelte components built on Inertia X. It provides ready-made patterns like modals, detail views, and overlays — all integrated with the browser's Navigation API for back/forward support out of the box.</p>
+    <div class="component-card coming-soon">
+      <h3>More themes</h3>
+      <p>Additional CSS themes beyond dark.css. Bring your own or contribute one.</p>
+      <span class="card-badge">Coming soon</span>
+    </div>
+  </div>
+</section>
 
-<h3>Quick Setup</h3>
-<p>Install the package:</p>
-<pre><code>npm install inertiax-ui</code></pre>
+<!-- What is Inertia X -->
+<!-- Stack -->
+<section class="info-section">
+  <h2>Built on Inertia X</h2>
+  <p>Inertia X UI is a component library for <strong>Inertia X</strong>, a fork of <a href="https://inertiajs.com/">Inertia.js</a> that extends the Svelte adapter with multi-frame support. Inertia X UI provides ready-made Svelte components that integrate with the browser's Navigation API for native back/forward support.</p>
 
-<p>Import a theme and the components you need:</p>
-<pre><code>import 'inertiax-ui/dark.css'
+  <p class="stack-diagram">
+    <span>Inertia X UI</span>
+    <span class="stack-arrow">← Svelte components (this library)</span>
+  </p>
+  <p class="stack-diagram">
+    <span>Inertia X</span>
+    <span class="stack-arrow">← Multi-frame support, global click handler</span>
+  </p>
+  <p class="stack-diagram">
+    <span>Inertia.js</span>
+    <span class="stack-arrow">← Server-side routing with client-side rendering</span>
+  </p>
+
+  <h3>What Inertia X adds to Inertia.js</h3>
+  <div class="info-grid">
+    <div class="info-item">
+      <strong>&lt;Frame&gt;</strong>
+      <p>Multiple independent Inertia page regions. Each frame has its own router, history, and state. Perfect for modals, sidebars, and multi-pane layouts.</p>
+    </div>
+    <div class="info-item">
+      <strong>Global click handler</strong>
+      <p>Plain <code>&lt;a&gt;</code> clicks inside a frame are auto-intercepted. No <code>&lt;Link&gt;</code> component needed.</p>
+    </div>
+    <div class="info-item">
+      <strong>visitOptions</strong>
+      <p>Set default visit behavior per frame — replace vs push, scroll preservation, URL updates.</p>
+    </div>
+    <div class="info-item">
+      <strong>History-aware mount</strong>
+      <p>Frames restore their previous page and scroll position from browser history on mount, surviving reloads.</p>
+    </div>
+  </div>
+
+  <p class="stack-footnote"><a href="https://inertiajs.com/">Inertia.js</a> is the foundation — it lets you build SPAs using classic server-side routing and controllers, no API needed. It's the glue between your server framework (Laravel, Rails, etc.) and your Svelte components.</p>
+</section>
+
+<!-- Getting Started -->
+<section class="info-section">
+  <h2>Getting Started</h2>
+  <pre><code>npm install inertiax-ui</code></pre>
+
+  <p>Import a theme and the components you need:</p>
+  <pre><code>import 'inertiax-ui/dark.css'
 import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
 
-<h3>Opening a Modal</h3>
-<p>The <code>createModal</code> function opens any Inertia X page in a modal overlay:</p>
-<pre><code>createModal({`{ src: '/welcome.json' }`})</code></pre>
+  <p>Open a modal from a link with zero JavaScript:</p>
+  <pre><code>&lt;a href="/welcome.json" use:modal&gt;Open Modal&lt;/a&gt;</code></pre>
 
-<p>The <code>use:modal</code> action does the same from an anchor tag — no event handler needed:</p>
-<pre><code>&lt;a href="/welcome.json" use:modal&gt;Open Modal&lt;/a&gt;</code></pre>
+  <p>Or programmatically:</p>
+  <pre><code>createModal({`{ src: '/welcome.json' }`})</code></pre>
+</section>
 
-<h3>Styling</h3>
-<p>Inertia X UI ships with a <code>dark.css</code> theme. Override any CSS custom property or write your own theme from scratch. The key classes to target:</p>
+<!-- Styling -->
+<section class="info-section">
+  <h2>Styling</h2>
+  <p>Inertia X UI ships with a <code>dark.css</code> theme. Override any CSS custom property or write your own theme from scratch.</p>
+  <ul class="class-list">
+    <li><code>.inx-modal_wrapper</code> — full-screen overlay</li>
+    <li><code>.inx-modal_bg</code> — clickable backdrop</li>
+    <li><code>.inx-modal</code> — the modal panel</li>
+    <li><code>.inx-spinner</code> — loading indicator</li>
+  </ul>
+  <p class="hint">Svelte injects a <code>--progress</code> CSS variable (0–1) during transitions — use it for custom animations.</p>
+</section>
 
-<ul class="class-list">
-  <li><code>.inx-modal_wrapper</code> — full-screen overlay container</li>
-  <li><code>.inx-modal_bg</code> — clickable backdrop</li>
-  <li><code>.inx-modal</code> — the modal panel</li>
-  <li><code>.inx-spinner</code> — loading indicator</li>
-</ul>
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    font-size: 1.15rem;
+    color: #8b949e;
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #30363d;
+    color: #e6edf3;
+    background: #21262d;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .hero-btn:hover { background: #30363d; border-color: #8b949e; text-decoration: none; }
+  .hero-btn.primary { background: #238636; border-color: #2ea043; color: #fff; }
+  .hero-btn.primary:hover { background: #2ea043; }
 
-<p>Svelte injects a <code>--progress</code> CSS variable (0–1) during transitions — use it with <code>transform</code> or <code>opacity</code> for custom animations.</p>
+  .component-index h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  a.component-card {
+    text-decoration: none;
+    color: inherit;
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  a.component-card:hover { border-color: #58a6ff; background: #1c2533; }
+  a.component-card:hover .card-link { color: #58a6ff; }
+  .component-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s;
+  }
+  .component-card.coming-soon { opacity: 0.55; }
+  .component-card h3 { font-size: 1.1rem; color: #f0f6fc; margin: 0 0 0.5rem; }
+  .component-card p { font-size: 0.85rem; color: #8b949e; margin-bottom: 0.75rem; line-height: 1.5; }
+  .card-features { list-style: none; padding: 0; margin: 0 0 0.75rem; font-size: 0.82rem; color: #8b949e; }
+  .card-features li::before { content: '✓ '; color: #3fb950; }
+  .card-features code { color: #d2a8ff; background: transparent; padding: 0; font-size: 0.9em; }
+  .card-link { margin-top: auto; font-size: 0.85rem; font-weight: 500; color: #8b949e; }
+  .card-badge {
+    display: inline-block; margin-top: auto; font-size: 0.75rem; color: #484f58;
+    border: 1px solid #21262d; border-radius: 20px; padding: 0.15rem 0.65rem; align-self: flex-start;
+  }
+
+  .info-section { margin: 3rem 0; }
+  .info-section h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .info-section h3 { font-size: 1.05rem; color: #f0f6fc; margin: 1.5rem 0 0.75rem; }
+  .stack-diagram {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    margin: 0.35rem 0;
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .stack-diagram span:first-child {
+    color: #f0f6fc;
+    font-weight: 600;
+    min-width: 90px;
+  }
+  .stack-arrow { color: #8b949e; font-size: 0.85rem; }
+  .stack-footnote {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #484f58;
+    line-height: 1.6;
+  }
+  .stack-footnote a { color: #8b949e; }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .info-item {
+    padding: 1rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid #21262d;
+    border-radius: 8px;
+  }
+  .info-item strong { display: block; color: #e6edf3; font-size: 0.9rem; margin-bottom: 0.35rem; }
+  .info-item p { font-size: 0.85rem; color: #8b949e; margin: 0; line-height: 1.5; }
+  .info-item code { color: #d2a8ff; background: transparent; padding: 0; font-size: 0.9em; }
+
+  .hint { font-size: 0.85rem; color: #484f58; margin-top: 0.5rem; }
+  .hint code { color: #a5d6ff; background: transparent; padding: 0; font-size: 0.9em; }
+</style>
