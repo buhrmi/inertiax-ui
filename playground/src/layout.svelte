@@ -1,14 +1,11 @@
 <script>
-  import { usePage } from 'inertiax-svelte'
+  import { page } from 'inertiax-svelte'
 
   let { children } = $props()
 
-  const pages = [
-    { name: 'Modal', path: '/modal.json', label: 'Modal' },
+  const links = [
+    { path: '/modal.json', label: 'Modal' },
   ]
-
-  let page = usePage()
-  let currentUrl = $derived(page.url)
 </script>
 
 <div class="layout">
@@ -20,8 +17,9 @@
       </a>
     </div>
     <nav class="sidebar-nav">
-      {#each pages as page}
-        <a href={page.path} class="sidebar-link" aria-current={currentUrl === page.path ? 'page' : undefined}>{page.label}</a>
+
+      {#each links as link}
+        <a href={link.path} class="sidebar-link" aria-current={page.url === link.path ? 'page' : undefined}>{link.label}</a>
       {/each}
     </nav>
     <div class="sidebar-footer">

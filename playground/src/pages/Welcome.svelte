@@ -6,7 +6,7 @@
 <!-- Hero -->
 <section class="hero">
   <h1>Inertia X UI</h1>
-  <p class="tagline">Svelte components for Inertia X. Modals, overlays, and multi-frame layouts — with native browser history built in.</p>
+  <p class="tagline">A collection of Svelte components for Inertia X.</p>
   <div class="hero-actions">
     <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">View on GitHub</a>
     <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm ↗</a>
@@ -47,7 +47,7 @@
 <!-- Stack -->
 <section class="info-section">
   <h2>Built on Inertia X</h2>
-  <p>Inertia X UI is a component library for <strong>Inertia X</strong>, a fork of <a href="https://inertiajs.com/">Inertia.js</a> that extends the Svelte adapter with multi-frame support. Inertia X UI provides ready-made Svelte components that integrate with the browser's Navigation API for native back/forward support.</p>
+  <p>Inertia X UI is a component library for <a href="https://github.com/buhrmi/inertiax" target="_blank">Inertia X</a>, a fork of Inertia.js that extends the Svelte adapter with multi-frame support. Inertia X UI builds on top of Inertia X to provide ready-made Svelte components that integrate with the browser's Navigation API for native back/forward support.</p>
 
   <p class="stack-diagram">
     <span>Inertia X UI</span>
