@@ -66,7 +66,7 @@ The Modal component passes a `close` function down to its page component as a pr
 <button onclick={close}>Close</button>
 ```
 
-Note that there is no `close` function on the modal instance itself as components aren't usually able to unmount themselves.
+Note that `createModal` also returns a `close` function you can call to close the modal programmatically from the parent.
 
 
 ### `onclose` callback

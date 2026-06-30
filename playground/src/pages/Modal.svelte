@@ -24,7 +24,7 @@
     <div class="demo-row">
       <div class="demo-col">
         <h3 class="demo-title">Creating and Closing a Modal</h3>
-        <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
+        <p class="demo-desc">Call <code>createModal</code> to create a modal. It returns a function that can be called to close the modal.</p>
         <div class="demo-code">
 <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
@@ -41,7 +41,7 @@
 
       <div class="demo-col">
         <h3 class="demo-title">Modal Action</h3>
-        <p class="demo-desc">You can use <code>use:modal</code> action as a shorthand for <code>createModal</code>.</p>
+        <p class="demo-desc">You can also use the <code>use:modal</code> action, which passes options to <code>createModal</code> internally.</p>
         <div class="demo-code">
           <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
@@ -56,7 +56,7 @@
 
       <div class="demo-col">
         <h3 class="demo-title">onclose callback</h3>
-        <p class="demo-desc">Pass <code>onclose</code> to run logic when the modal closes — reload the parent page, reset state, or clean up.</p>
+        <p class="demo-desc">Modals accept an <code>onclose</code> callback. This callback is invoked when the modal is closed.</p>
         <div class="demo-code">
           <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 <span class="kw">import</span> {`{ router }`} <span class="kw">from</span> <span class="str">'inertiax-svelte'</span>
@@ -79,13 +79,27 @@ Open Modal
       </div>
 
       <div class="demo-col">
+        <h3 class="demo-title">The close() function</h3>
+        <p class="demo-desc">Modal pages receive a <code>close</code> function via <code>$props()</code>. Call <code>close()</code> to navigate back in history and unmount. Call <code>close(false)</code> to just unmount without affecting history — forward navigation won't re-open it.</p>
+        <div class="demo-code">
+          <pre><code><span class="kw">const</span> {`{ close }`} = <span class="fn">$props</span>()
+
+<span class="cmt">// Navigate back, then unmount</span>
+&lt;<span class="tag">button</span> <span class="attr">onclick</span>={`{close}`}&gt;Close&lt;/<span class="tag">button</span>&gt;
+
+<span class="cmt">// Just unmount, don't touch history</span>
+&lt;<span class="tag">button</span> <span class="attr">onclick</span>={`{() => close(false)}`}&gt;Close&lt;/<span class="tag">button</span>&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-col">
         <h3 class="demo-title">Parent Communication</h3>
         <p class="demo-desc">All props passed to <code>createModal</code> are forwarded to the page component. Pass callbacks to let the modal communicate back.</p>
         <div class="demo-code">
           <pre><code><span class="cmt">// Parent: pass a callback as a prop</span>
 <span class="fn">createModal</span>({`{
   src: '/modal-content.json',
-  onSave: (data) => { `}<span class="cmt">/* handle data */</span>{` }
+  onSave: () => { `}<span class="cmt">/* do something cool */</span>{` }
 }`})
 
 
