@@ -16,27 +16,31 @@
   export function createModal(props) {
     const onclose = props.onclose || (() => {})
     let modal = null
-    function close() {
-      unmount(modal, { outro: true })
-      onclose()
+    let traverseBack = null
+    function close(traverse = true) {
+      if (traverse && traverseBack) {
+        traverseBack()
+      } else {
+        unmount(modal, { outro: true })
+        onclose()
+      }
     }
-    push(function(traverseBack) {
+    push(function(tb) {
+      traverseBack = tb
       modal = mount(Modal, { 
         target: document.body,
         props: {
           ...props,
-          close: function(traverse = true) {
-            traverse ? traverseBack() : close()
-          }
+          close
         }
       })
-      return close
+      return () => close(false)
     })
     return close
   }
 
 
- function css(node, { delay = 0 }) {
+  function css(node, { delay = 0 }) {
     // duration on desktop is 300, on mobile 400
     const duration = window.innerWidth > 768 ? 300 : 400;
     return {

@@ -33,8 +33,11 @@
   src: '/modal-content.json'
 }`})
 
-<span class="cmt">// Call it to close the modal</span>
-<span class="fn">closeModal</span>()</code></pre>
+<span class="cmt">// Navigate back, then unmount</span>
+<span class="fn">closeModal</span>()
+
+<span class="cmt">// Or unmount without touching history</span>
+<span class="fn">closeModal</span>(<span class="kw">false</span>)</code></pre>
         </div>
       
       </div>

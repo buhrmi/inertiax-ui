@@ -22,13 +22,16 @@ const modal = createModal({
 })
 ```
 
-`createModal` returns a `close` function you can call to close the modal programmatically:
+`createModal` returns a `close` function you can call to close the modal programmatically. Call `close()` or `close(true)` to navigate back in history then unmount. Call `close(false)` to unmount without touching history:
 
 ```js
-const modal = createModal({ src: '/profile/edit' })
+const closeModal = createModal({ src: '/profile/edit' })
 
-// Later, close the modal
-modal()
+// Navigate back, then unmount
+closeModal()
+
+// Or just unmount, skip history
+closeModal(false)
 ```
 
 #### `modal` action
