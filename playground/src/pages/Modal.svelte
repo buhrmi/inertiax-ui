@@ -23,31 +23,36 @@
 
     <div class="demo-row">
       <div class="demo-col">
-        <h3 class="demo-title">modal action</h3>
-        <p class="demo-desc">Use the <code>use:modal</code> action on links to open their <code>href</code> in a modal. Pass an object to add options like <code>onclose</code>.</p>
+        <h3 class="demo-title">Creating and Closing a Modal</h3>
+        <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
+        <div class="demo-code">
+<pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
+
+<span class="cmt">// createModal returns a close function</span>
+<span class="kw">const</span> closeModal = <span class="fn">createModal</span>({`{
+  src: '/modal-content.json'
+}`})
+
+<span class="cmt">// Call it to close the modal</span>
+<span class="fn">closeModal</span>()</code></pre>
+        </div>
+      
+      </div>
+
+      <div class="demo-col">
+        <h3 class="demo-title">Modal Action</h3>
+        <p class="demo-desc">You can use <code>use:modal</code> action as a shorthand for <code>createModal</code>.</p>
         <div class="demo-code">
           <pre><code><span class="kw">import</span> {`{ modal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
 
 &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/modal-content.json"</span> <span class="attr">use:modal</span>&gt;
-Open Modal
+  Open Modal
 &lt;/<span class="tag">a</span>&gt;</code></pre>
 
       </div>
         
       </div>
 
-      <div class="demo-col">
-        <h3 class="demo-title">createModal</h3>
-        <p class="demo-desc">Call <code>createModal</code> programmatically — useful when you need to trigger a modal from an event handler, or any custom logic.</p>
-        <div class="demo-code">
-          <pre><code><span class="kw">import</span> {`{ createModal }`} <span class="kw">from</span> <span class="str">'inertiax-ui'</span>
-
-<span class="fn">createModal</span>({`{
-src: '/modal-content.json'
-}`})</code></pre>
-        </div>
-
-      </div>
 
       <div class="demo-col">
         <h3 class="demo-title">onclose callback</h3>
@@ -70,6 +75,26 @@ src: '/modal-content.json'
 &lt;<span class="tag">a</span> <span class="attr">href</span>=<span class="str">"/modal-content.json"</span> <span class="attr">use:modal</span>=<span class="fn">&#123;&#123; onclose: router.reload &#125;&#125;</span>&gt;
 Open Modal
 &lt;/<span class="tag">a</span>&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-col">
+        <h3 class="demo-title">Parent Communication</h3>
+        <p class="demo-desc">All props passed to <code>createModal</code> are forwarded to the page component. Pass callbacks to let the modal communicate back.</p>
+        <div class="demo-code">
+          <pre><code><span class="cmt">// Parent: pass a callback as a prop</span>
+<span class="fn">createModal</span>({`{
+  src: '/modal-content.json',
+  onSave: (data) => { `}<span class="cmt">/* handle data */</span>{` }
+}`})
+
+
+<span class="cmt">// Modal page: receive it via $props()</span>
+<span class="kw">const</span> {`{ onSave, close }`} = <span class="fn">$props</span>()
+
+&lt;<span class="tag">button</span> <span class="attr">onclick</span>={`{onSave}`}&gt;
+  Save
+&lt;/<span class="tag">button</span>&gt;</code></pre>
         </div>
       </div>
     </div>
@@ -171,6 +196,7 @@ Open Modal
   .demo-code .str { color: #a5d6ff; }
   .demo-code .tag { color: #7ee787; }
   .demo-code .attr { color: #79c0ff; }
+  .demo-code .cmt { color: #8b949e; font-style: italic; }
 
   .demo-result {
     display: flex;

@@ -15,12 +15,12 @@
 
   export function createModal(props) {
     const onclose = props.onclose || (() => {})
+    let modal = null
+    function close() {
+      unmount(modal, { outro: true })
+      onclose()
+    }
     push(function(traverseBack) {
-      let modal = null
-      function close() {
-        unmount(modal, { outro: true })
-        onclose()
-      }
       modal = mount(Modal, { 
         target: document.body,
         props: {
@@ -32,6 +32,7 @@
       })
       return close
     })
+    return close
   }
 
 

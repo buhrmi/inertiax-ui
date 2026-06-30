@@ -22,6 +22,15 @@ const modal = createModal({
 })
 ```
 
+`createModal` returns a `close` function you can call to close the modal programmatically:
+
+```js
+const modal = createModal({ src: '/profile/edit' })
+
+// Later, close the modal
+modal()
+```
+
 #### `modal` action
 
 Inertia X UI also ships with a `modal` action. This is a small wrapper for `createModal` and passes the `href` attribute as the `src` prop.
@@ -75,6 +84,38 @@ createModal({
 ```
 
 Common use cases: reloading the parent page after an edit, resetting form state, or cleaning up side effects.
+
+### Communicating with the parent
+
+All props passed to `createModal` (except `src`) are forwarded to the page component rendered inside the modal. This lets you pass callbacks that the modal page can call to communicate back to the parent.
+
+```js
+// In your parent component
+import { createModal } from 'inertiax-ui'
+
+createModal({
+  src: '/profile/edit',
+  onSave: (data) => {
+    console.log('Saved:', data)
+  }
+})
+```
+
+```svelte
+<!-- Inside the modal page (e.g. /profile/edit) -->
+<script>
+  const { onSave, close } = $props()
+
+  let name = $state('')
+</script>
+
+<button onclick={() => { onSave({ name }); close() }}>Save</button>
+```
+
+```js
+// Also works with the modal action
+<a href="/profile/edit" use:modal={{ onSave: (data) => handleSave(data) }}>Edit</a>
+```
 
 ## Installation
 
