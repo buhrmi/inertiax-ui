@@ -4,7 +4,9 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [
-    svelte(),
+    svelte({
+      extensions: ['.svelte', '.svx'],
+    }),
     {
       name: 'inertia-json-guard',
       configureServer(server) {

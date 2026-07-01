@@ -1,4 +1,5 @@
 import './app.css'
+import 'prismjs/themes/prism-tomorrow.css'
 import 'inertiax-ui/dark.css'
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
@@ -7,6 +8,7 @@ import { createModal } from 'inertiax-ui'
 window.__test__ = { createModal }
 
 const pages = import.meta.glob('./pages/*.svelte', { eager: true })
+const mdsvexPages = import.meta.glob('./pages/*.svx', { eager: true })
 const pageObjects = import.meta.glob('../public/*.json', { eager: true })
 
 // Build route map from JSON page objects
@@ -26,8 +28,9 @@ function initialPage() {
 
 createInertiaApp({
   resolve: (name) => {
-    const key = `./pages/${name}.svelte`
-    const mod = pages[key]
+    const svelteKey = `./pages/${name}.svelte`
+    const svxKey = `./pages/${name}.svx`
+    const mod = pages[svelteKey] || mdsvexPages[svxKey]
     if (!mod) throw new Error(`Page not found: ${name}`)
     return mod
   },

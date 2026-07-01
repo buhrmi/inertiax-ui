@@ -17,6 +17,7 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "mdsvex": "^0.12.7",
     "vite": "^6.0.0"
   },
   "version": "0.0.1"

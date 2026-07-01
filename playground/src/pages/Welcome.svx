@@ -1,9 +1,9 @@
 <script module>
   import AppLayout from '../layout.svelte'
+
   export const layout = AppLayout
 </script>
 
-<!-- Hero -->
 <section class="hero">
   <h1>Inertia X UI</h1>
   <p class="tagline">A collection of Svelte components for Inertia X.</p>
@@ -13,7 +13,6 @@
   </div>
 </section>
 
-<!-- Component Index -->
 <section class="component-index">
   <h2>Components</h2>
   <div class="component-grid">
@@ -31,7 +30,7 @@
 
     <div class="component-card coming-soon">
       <h3>Detail</h3>
-      <p>Master-detail view — inline panel on desktop, full-screen slide-in on mobile. Navigate entries with back/forward.</p>
+      <p>Master-detail view - inline panel on desktop, full-screen slide-in on mobile. Navigate entries with back/forward.</p>
       <span class="card-badge">Coming soon</span>
     </div>
 
@@ -43,23 +42,21 @@
   </div>
 </section>
 
-<!-- What is Inertia X -->
-<!-- Stack -->
 <section class="info-section">
   <h2>Built on Inertia X</h2>
   <p>Inertia X UI is a component library for <a href="https://github.com/buhrmi/inertiax" target="_blank">Inertia X</a>, a fork of Inertia.js that extends the Svelte adapter with multi-frame support. Inertia X UI builds on top of Inertia X to provide ready-made Svelte components that integrate with the browser's Navigation API for native back/forward support.</p>
 
   <p class="stack-diagram">
     <span>Inertia X UI</span>
-    <span class="stack-arrow">← Svelte components (this library)</span>
+    <span class="stack-arrow">&larr; Svelte components (this library)</span>
   </p>
   <p class="stack-diagram">
     <span>Inertia X</span>
-    <span class="stack-arrow">← Multi-frame support, global click handler</span>
+    <span class="stack-arrow">&larr; Multi-frame support, global click handler</span>
   </p>
   <p class="stack-diagram">
     <span>Inertia.js</span>
-    <span class="stack-arrow">← Server-side routing with client-side rendering</span>
+    <span class="stack-arrow">&larr; Server-side routing with client-side rendering</span>
   </p>
 
   <h3>What Inertia X adds to Inertia.js</h3>
@@ -74,7 +71,7 @@
     </div>
     <div class="info-item">
       <strong>visitOptions</strong>
-      <p>Set default visit behavior per frame — replace vs push, scroll preservation, URL updates.</p>
+      <p>Set default visit behavior per frame - replace vs push, scroll preservation, URL updates.</p>
     </div>
     <div class="info-item">
       <strong>History-aware mount</strong>
@@ -82,33 +79,38 @@
     </div>
   </div>
 
-  <p class="stack-footnote"><a href="https://inertiajs.com/">Inertia.js</a> is the foundation — it lets you build SPAs using classic server-side routing and controllers, no API needed. It's the glue between your server framework (Laravel, Rails, etc.) and your Svelte components.</p>
+  <p class="stack-footnote"><a href="https://inertiajs.com/">Inertia.js</a> is the foundation - it lets you build SPAs using classic server-side routing and controllers, no API needed. It's the glue between your server framework (Laravel, Rails, etc.) and your Svelte components.</p>
 </section>
 
-<!-- Getting Started -->
 <section class="info-section">
   <h2>Getting Started</h2>
-  <pre><code>npm install inertiax-ui</code></pre>
 
-  <p>Import a theme and the components you need:</p>
-  <pre><code>import 'inertiax-ui/dark.css'
-import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
+```bash
+npm install inertiax-ui
+```
 
-  <p>Use <code>use:modal</code> on links or <code>createModal()</code> to open any Inertia X page in a modal overlay.</p>
-  <a href="/modal.json" class="hero-btn primary">See examples & demo →</a>
+Import a theme and the components you need:
+
+```js
+import 'inertiax-ui/dark.css'
+import { createModal, modal } from 'inertiax-ui'
+```
+
+Use `use:modal` on links or `createModal()` to open any Inertia X page in a modal overlay.
+
+<a href="/modal.json" class="hero-btn primary">See examples & demo →</a>
 </section>
 
-<!-- Styling -->
 <section class="info-section">
   <h2>Styling</h2>
   <p>Inertia X UI ships with a <code>dark.css</code> theme. Override any CSS custom property or write your own theme from scratch.</p>
   <ul class="class-list">
-    <li><code>.inx-modal_wrapper</code> — full-screen overlay</li>
-    <li><code>.inx-modal_bg</code> — clickable backdrop</li>
-    <li><code>.inx-modal</code> — the modal panel</li>
-    <li><code>.inx-spinner</code> — loading indicator</li>
+    <li><code>.inx-modal_wrapper</code> - full-screen overlay</li>
+    <li><code>.inx-modal_bg</code> - clickable backdrop</li>
+    <li><code>.inx-modal</code> - the modal panel</li>
+    <li><code>.inx-spinner</code> - loading indicator</li>
   </ul>
-  <p class="hint">Svelte injects a <code>--progress</code> CSS variable (0–1) during transitions — use it for custom animations.</p>
+  <p class="hint">Svelte injects a <code>--progress</code> CSS variable (0-1) during transitions - use it for custom animations.</p>
 </section>
 
 <style>
@@ -116,6 +118,7 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     text-align: center;
     padding: 3rem 1rem 2rem;
   }
+
   .hero h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -123,6 +126,7 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
   }
+
   .tagline {
     font-size: 1.15rem;
     color: #8b949e;
@@ -130,12 +134,14 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     margin: 0 auto 1.5rem;
     line-height: 1.6;
   }
+
   .hero-actions {
     display: flex;
     gap: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
   }
+
   .hero-btn {
     display: inline-flex;
     align-items: center;
@@ -150,17 +156,35 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     background: #21262d;
     transition: background 0.2s, border-color 0.2s;
   }
-  .hero-btn:hover { background: #30363d; border-color: #8b949e; text-decoration: none; }
-  .hero-btn.primary { background: #238636; border-color: #2ea043; color: #fff; }
-  .hero-btn.primary:hover { background: #2ea043; }
 
-  .component-index h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+  .hero-btn:hover {
+    background: #30363d;
+    border-color: #8b949e;
+    text-decoration: none;
+  }
+
+  .hero-btn.primary {
+    background: #238636;
+    border-color: #2ea043;
+    color: #fff;
+  }
+
+  .hero-btn.primary:hover {
+    background: #2ea043;
+  }
+
+  .component-index h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
   .component-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1rem;
     margin-bottom: 3rem;
   }
+
   a.component-card {
     text-decoration: none;
     color: inherit;
@@ -172,8 +196,16 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     flex-direction: column;
     transition: border-color 0.2s, background 0.2s;
   }
-  a.component-card:hover { border-color: #58a6ff; background: #1c2533; }
-  a.component-card:hover .card-link { color: #58a6ff; }
+
+  a.component-card:hover {
+    border-color: #58a6ff;
+    background: #1c2533;
+  }
+
+  a.component-card:hover .card-link {
+    color: #58a6ff;
+  }
+
   .component-card {
     background: #161b22;
     border: 1px solid #21262d;
@@ -183,21 +215,77 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     flex-direction: column;
     transition: border-color 0.2s;
   }
-  .component-card.coming-soon { opacity: 0.55; }
-  .component-card h3 { font-size: 1.1rem; color: #f0f6fc; margin: 0 0 0.5rem; }
-  .component-card p { font-size: 0.85rem; color: #8b949e; margin-bottom: 0.75rem; line-height: 1.5; }
-  .card-features { list-style: none; padding: 0; margin: 0 0 0.75rem; font-size: 0.82rem; color: #8b949e; }
-  .card-features li::before { content: '✓ '; color: #3fb950; }
-  .card-features code { color: #d2a8ff; background: transparent; padding: 0; font-size: 0.9em; }
-  .card-link { margin-top: auto; font-size: 0.85rem; font-weight: 500; color: #8b949e; }
-  .card-badge {
-    display: inline-block; margin-top: auto; font-size: 0.75rem; color: #484f58;
-    border: 1px solid #21262d; border-radius: 20px; padding: 0.15rem 0.65rem; align-self: flex-start;
+
+  .component-card.coming-soon {
+    opacity: 0.55;
   }
 
-  .info-section { margin: 3rem 0; }
-  .info-section h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-  .info-section h3 { font-size: 1.05rem; color: #f0f6fc; margin: 1.5rem 0 0.75rem; }
+  .component-card h3 {
+    font-size: 1.1rem;
+    color: #f0f6fc;
+    margin: 0 0 0.5rem;
+  }
+
+  .component-card p {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    font-size: 0.82rem;
+    color: #8b949e;
+  }
+
+  .card-features li::before {
+    content: '✓ ';
+    color: #3fb950;
+  }
+
+  .card-features code {
+    color: #d2a8ff;
+    background: transparent;
+    padding: 0;
+    font-size: 0.9em;
+  }
+
+  .card-link {
+    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #8b949e;
+  }
+
+  .card-badge {
+    display: inline-block;
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: #484f58;
+    border: 1px solid #21262d;
+    border-radius: 20px;
+    padding: 0.15rem 0.65rem;
+    align-self: flex-start;
+  }
+
+  .info-section {
+    margin: 3rem 0;
+  }
+
+  .info-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .info-section h3 {
+    font-size: 1.05rem;
+    color: #f0f6fc;
+    margin: 1.5rem 0 0.75rem;
+  }
+
   .stack-diagram {
     display: flex;
     align-items: center;
@@ -209,35 +297,74 @@ import {`{ createModal, modal }`} from 'inertiax-ui'</code></pre>
     border-radius: 8px;
     font-size: 0.9rem;
   }
+
   .stack-diagram span:first-child {
     color: #f0f6fc;
     font-weight: 600;
     min-width: 90px;
   }
-  .stack-arrow { color: #8b949e; font-size: 0.85rem; }
+
+  .stack-arrow {
+    color: #8b949e;
+    font-size: 0.85rem;
+  }
+
   .stack-footnote {
     margin-top: 1.25rem;
     font-size: 0.85rem;
     color: #484f58;
     line-height: 1.6;
   }
-  .stack-footnote a { color: #8b949e; }
+
+  .stack-footnote a {
+    color: #8b949e;
+  }
+
   .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 0.75rem;
     margin-top: 1rem;
   }
+
   .info-item {
     padding: 1rem;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid #21262d;
     border-radius: 8px;
   }
-  .info-item strong { display: block; color: #e6edf3; font-size: 0.9rem; margin-bottom: 0.35rem; }
-  .info-item p { font-size: 0.85rem; color: #8b949e; margin: 0; line-height: 1.5; }
-  .info-item code { color: #d2a8ff; background: transparent; padding: 0; font-size: 0.9em; }
 
-  .hint { font-size: 0.85rem; color: #484f58; margin-top: 0.5rem; }
-  .hint code { color: #a5d6ff; background: transparent; padding: 0; font-size: 0.9em; }
+  .info-item strong {
+    display: block;
+    color: #e6edf3;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .info-item p {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .info-item code {
+    color: #d2a8ff;
+    background: transparent;
+    padding: 0;
+    font-size: 0.9em;
+  }
+
+  .hint {
+    font-size: 0.85rem;
+    color: #484f58;
+    margin-top: 0.5rem;
+  }
+
+  .hint code {
+    color: #a5d6ff;
+    background: transparent;
+    padding: 0;
+    font-size: 0.9em;
+  }
 </style>
