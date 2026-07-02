@@ -53,17 +53,27 @@ window.navigation.addEventListener('currententrychange', garbageCollectOrphanedC
 
 window.navigation.addEventListener('navigate', (event) => {
   if (event.navigationType === 'traverse') {  
-    const destIndex = event.destination.index;
-    const currIndex = navigation.currentEntry.index;
+    const destIndex = event.destination.index
+    const currIndex = navigation.currentEntry.index
     const entries = navigation.entries()
 
     if (destIndex > currIndex) {
-      // navigated forward — arrive all intermediate entries + destination
-      for (let i = currIndex + 1; i <= destIndex; i++) {
-        const key = entries[i].key
-        const prevKey = entries[i - 1].key
-        cleanups[key] = arrivers[key]?.(() => navigation.traverseTo(prevKey))
+      // Run after current entry switches so history.state reflects destination.
+      const onCurrentEntryChange = () => {
+        if (navigation.currentEntry.key !== event.destination.key) {
+          return
+        }
+
+        for (let i = currIndex + 1; i <= destIndex; i++) {
+          const key = entries[i].key
+          const prevKey = entries[i - 1].key
+          cleanups[key] = arrivers[key]?.(() => navigation.traverseTo(prevKey))
+        }
+
+        window.navigation.removeEventListener('currententrychange', onCurrentEntryChange)
       }
+
+      window.navigation.addEventListener('currententrychange', onCurrentEntryChange)
     } else if (destIndex < currIndex) {
       // navigated back — cleanup all entries from current down to dest+1
       for (let i = currIndex; i > destIndex; i--) {

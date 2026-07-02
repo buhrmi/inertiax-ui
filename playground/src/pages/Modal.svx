@@ -161,6 +161,21 @@ createModal({
     color: #f3f6ff !important;
   }
 
+  @media (max-width: 700px) {
+    :global([data-sonner-toaster]) {
+      top: 0 !important;
+      right: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%);
+      position: fixed;
+      width: min(28rem, calc(100vw - 1rem));
+    }
+
+    :global([data-sonner-toast]) {
+      width: 100%;
+    }
+  }
+
   .demo-section {
     animation: rise-in 0.35s ease both;
     padding: 0.6rem 0.35rem 1.2rem;

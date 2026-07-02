@@ -7,7 +7,7 @@
 <section class="hero banner">
   <p class="eyebrow">Component Playground</p>
   <h1>Inertia X UI</h1>
-  <p class="tagline">Narrative-first UI primitives for history-aware Inertia flows in Svelte.</p>
+  <p class="tagline">Narrative-first Svelte components for Inertia X.</p>
   <div class="hero-actions">
     <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">Source on GitHub</a>
     <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm package ↗</a>
