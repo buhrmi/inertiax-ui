@@ -57,14 +57,14 @@
 
 <script>
   import { fade } from 'svelte/transition';
-  const { src, close } = $props()
+  const { src, close, ...rest } = $props()
 </script>
 
 <div class="inx-modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
   <div class="inx-modal" aria-modal="true" scroll-region role="dialog" transition:css>
-    <Frame {src} {close} visitOptions={{ replace: false }} skipHistoryRestore>
+    <Frame {...rest} {src} {close} visitOptions={{ replace: false }} skipHistoryRestore>
       <div class="inx-spinner" ></div>
     </Frame>
     <nav>

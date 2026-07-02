@@ -3,34 +3,61 @@
   export const layout = AppLayout
 </script>
 
+<script>
+  const { onsave, close } = $props()
+  import { useRemember } from "inertiax-svelte"
+  let data = useRemember({name: ""})
+</script>
+
 <div class="celebrate">
   <h2>🎉 Great Success!</h2>
-  <p>You just navigated <strong>within a modal</strong>. Inertia X loaded this page inside the same modal overlay.</p>
+  <p>You just navigated <strong>within a modal</strong>. Inertia X loaded this page inside the same modal overlay and can remember state inside each frame.</p>
 
   <div class="try-it">
     <h3>Now Try This</h3>
-    <p>Press your browser's <strong>back button</strong> to return to the previous page. Inertia's scroll restoration will drop you right where you left off — same scroll position, same state. Then press <strong>forward</strong> to come back here.</p>
+    <input type="text" placeholder="Type something here..." bind:value={data.name} />
+    <p>Press your browser's <strong>back button</strong> to return to the previous page. Inertia remembers frame state, so when you go <strong>back</strong> and then <strong>forward</strong>, your text and scroll position are restored right where you left them.</p>
     <p class="hint">← Back button is in your browser chrome, top left</p>
   </div>
 
+  <button class="secondary btn" onclick={() => close()}>Cancel</button>
+  <button class="primary btn" onclick={() => onsave(data.name, close)}>Save</button>
 </div>
 
 <style>
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    margin-right: 0.5rem;
+  }
+
   .celebrate {
     padding: 1.5rem;
   }
 
-  .celebrate h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #484f58;
+    background-color: #161b22;
+    color: #c9d1d9;
+    margin-bottom: 0.5rem;
   }
 
-  .celebrate p {
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
+  .primary {
+    background-color: #58a6ff;
+    color: white;
   }
+  .secondary {
+    background-color: #21262d;
+    color: #8b949e;
+  }
+
 
   .try-it {
     background: linear-gradient(135deg, rgba(88, 166, 255, 0.12), rgba(188, 140, 255, 0.1));

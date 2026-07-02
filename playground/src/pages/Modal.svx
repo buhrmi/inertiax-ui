@@ -20,7 +20,7 @@
 
   <div class="demo-block">
     <div class="demo-result">
-      <a use:modal={{ onclose: () => toast.success('Modal closed!') }} href="/modal-content.json" class="try-btn">
+      <a use:modal={{ onsave: (data, close) => {toast.success('Saved "' + data + '"'); close()} }} href="/modal-content.json" class="try-btn">
         Open Modal ↗
       </a>
     </div>
@@ -119,8 +119,8 @@ the modal communicate back.
 // Parent: pass a callback as a prop
 createModal({
   src: '/modal-content.json',
-  onSave: () => {
-    /* do something cool */
+  onSave: (data) => {
+    console.log("got data from modal:", data)
   },
 })
 
@@ -132,7 +132,8 @@ createModal({
   const { onSave, close } = $props()
 </script>
 
-<button onclick={onSave}>Save</button>
+<button onclick={close}>Cancel</button>
+<button onclick={() => onSave(data)}>Save</button>
 ```
       </div>
     </div>
