@@ -4,59 +4,68 @@
   export const layout = AppLayout
 </script>
 
-<section class="hero">
+<section class="hero banner">
+  <p class="eyebrow">Component Playground</p>
   <h1>Inertia X UI</h1>
-  <p class="tagline">A collection of Svelte components for Inertia X.</p>
+  <p class="tagline">Narrative-first UI primitives for history-aware Inertia flows in Svelte.</p>
   <div class="hero-actions">
-    <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">View on GitHub</a>
-    <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm ↗</a>
+    <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">Source on GitHub</a>
+    <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm package ↗</a>
   </div>
 </section>
 
 <section class="component-index">
-  <h2>Components</h2>
+  <h2>Playable Components</h2>
   <div class="component-grid">
     <a href="/modal.json" class="component-card">
       <h3>Modal</h3>
-      <p>Display any Inertia X page inside a modal overlay. Opens as a bottom sheet on mobile, centered dialog on desktop.</p>
-      <ul class="card-features">
-        <li>Back/forward navigation support</li>
-        <li>Scroll restoration</li>
-        <li><code>use:modal</code> action on links</li>
-        <li><code>createModal()</code> for programmatic use</li>
-      </ul>
-      <span class="card-link">View demo →</span>
+      <p>Open an Inertia X page inside a modal frame.</p>
+
+```svelte
+<script>
+  import { modal } from 'inertiax-ui'
+</script>
+
+<a href="/modal.json" use:modal>
+  Open modal
+</a>
+```
+      <span class="card-link hero-btn primary">Launch demo →</span>
     </a>
 
     <div class="component-card coming-soon">
       <h3>Detail</h3>
-      <p>Master-detail view - inline panel on desktop, full-screen slide-in on mobile. Navigate entries with back/forward.</p>
+      <p>Reserved for a future detail-view example.</p>
+
+
       <span class="card-badge">Coming soon</span>
     </div>
 
     <div class="component-card coming-soon">
-      <h3>More themes</h3>
-      <p>Additional CSS themes beyond dark.css. Bring your own or contribute one.</p>
+      <h3>More Themes</h3>
+      <p>Reserved for additional theme examples.</p>
       <span class="card-badge">Coming soon</span>
     </div>
   </div>
+
+
 </section>
 
 <section class="info-section">
   <h2>Built on Inertia X</h2>
-  <p>Inertia X UI is a component library for <a href="https://github.com/buhrmi/inertiax" target="_blank">Inertia X</a>, a fork of Inertia.js that extends the Svelte adapter with multi-frame support. Inertia X UI builds on top of Inertia X to provide ready-made Svelte components that integrate with the browser's Navigation API for native back/forward support.</p>
+  <p>Inertia X UI is a component library for <a href="https://github.com/buhrmi/inertiax" target="_blank">Inertia X</a>, a fork of Inertia.js that extends the Svelte adapter with multi-frame support. This package provides production-ready UI pieces that embrace native browser navigation.</p>
 
   <p class="stack-diagram">
     <span>Inertia X UI</span>
-    <span class="stack-arrow">&larr; Svelte components (this library)</span>
+    <span class="stack-arrow">Svelte component layer</span>
   </p>
   <p class="stack-diagram">
     <span>Inertia X</span>
-    <span class="stack-arrow">&larr; Multi-frame support, global click handler</span>
+    <span class="stack-arrow">Multi-frame routing and global click handling</span>
   </p>
   <p class="stack-diagram">
     <span>Inertia.js</span>
-    <span class="stack-arrow">&larr; Server-side routing with client-side rendering</span>
+    <span class="stack-arrow">Server-routed single page app model</span>
   </p>
 
   <h3>What Inertia X adds to Inertia.js</h3>
@@ -115,256 +124,203 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
 
 <style>
   .hero {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .banner {
+    border: 1px solid #2f3f4d;
+    border-radius: 18px;
+    padding: clamp(1.6rem, 2.5vw, 2.6rem);
+    box-shadow: var(--shadow);
+    animation: rise-in 0.45s ease both;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.5rem;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #8d9aa7;
+    font-weight: 700;
   }
 
   .hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #f0f6fc;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    margin-bottom: 0.6rem;
   }
 
   .tagline {
-    font-size: 1.15rem;
-    color: #8b949e;
-    max-width: 520px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 38rem;
+    margin-bottom: 1.2rem;
+    color: #a2afbc;
   }
 
   .hero-actions {
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.8rem;
     flex-wrap: wrap;
   }
 
-  .hero-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.6rem 1.4rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid #30363d;
-    color: #e6edf3;
-    background: #21262d;
-    transition: background 0.2s, border-color 0.2s;
-  }
-
-  .hero-btn:hover {
-    background: #30363d;
-    border-color: #8b949e;
-    text-decoration: none;
-  }
-
-  .hero-btn.primary {
-    background: #238636;
-    border-color: #2ea043;
-    color: #fff;
-  }
-
-  .hero-btn.primary:hover {
-    background: #2ea043;
+  .component-index {
+    margin: 2.8rem 0 3rem;
+    padding: 0.3rem 0.25rem;
   }
 
   .component-index h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .component-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  a.component-card {
-    text-decoration: none;
-    color: inherit;
-    background: #161b22;
-    border: 1px solid #21262d;
-    border-radius: 12px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  a.component-card:hover {
-    border-color: #58a6ff;
-    background: #1c2533;
-  }
-
-  a.component-card:hover .card-link {
-    color: #58a6ff;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
   }
 
   .component-card {
-    background: #161b22;
-    border: 1px solid #21262d;
-    border-radius: 12px;
-    padding: 1.5rem;
+    border: 1px solid #2f3f4d;
+    border-radius: 15px;
+    padding: 1.2rem;
+    background: rgba(20, 27, 34, 0.62);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s;
+  }
+
+  a.component-card {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  a.component-card:hover {
+    transform: translateY(-3px);
+    border-color: #7568ff;
   }
 
   .component-card.coming-soon {
-    opacity: 0.55;
-  }
-
-  .component-card h3 {
-    font-size: 1.1rem;
-    color: #f0f6fc;
-    margin: 0 0 0.5rem;
+    opacity: 0.68;
   }
 
   .component-card p {
-    font-size: 0.85rem;
-    color: #8b949e;
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #a5b1be;
   }
 
-  .card-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0.75rem;
-    font-size: 0.82rem;
-    color: #8b949e;
+  .component-card :global(pre) {
+    background: #1f2731;
+    border: 1px solid #3c4655;
   }
 
-  .card-features li::before {
-    content: '✓ ';
-    color: #3fb950;
-  }
-
-  .card-features code {
-    color: #d2a8ff;
-    background: transparent;
-    padding: 0;
-    font-size: 0.9em;
+  .card-link,
+  .card-badge {
+    margin-top: auto;
+    font-size: 0.78rem;
+    font-weight: 600;
   }
 
   .card-link {
-    margin-top: auto;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #8b949e;
+    align-self: flex-start;
+    margin-top: 0.8rem;
+    text-decoration: none;
   }
 
   .card-badge {
     display: inline-block;
-    margin-top: auto;
-    font-size: 0.75rem;
-    color: #484f58;
-    border: 1px solid #21262d;
-    border-radius: 20px;
     padding: 0.15rem 0.65rem;
-    align-self: flex-start;
+    border-radius: 999px;
+    border: 1px solid #2f3f4d;
+    color: #8c99a6;
   }
 
   .info-section {
     margin: 3rem 0;
+    padding: 0.5rem 0.25rem;
+    background: transparent;
+    max-width: 78ch;
   }
 
-  .info-section h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-  }
-
+  .info-section h2,
   .info-section h3 {
-    font-size: 1.05rem;
-    color: #f0f6fc;
-    margin: 1.5rem 0 0.75rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .info-section p {
+    margin-bottom: 1.15rem;
   }
 
   .stack-diagram {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.6rem 1rem;
-    margin: 0.35rem 0;
-    background: #161b22;
-    border: 1px solid #21262d;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.65rem 0;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    font-size: 0.86rem;
+    background: transparent;
   }
 
   .stack-diagram span:first-child {
-    color: #f0f6fc;
-    font-weight: 600;
-    min-width: 90px;
+    font-weight: 700;
+    color: #dfe7f0;
   }
 
   .stack-arrow {
-    color: #8b949e;
-    font-size: 0.85rem;
+    color: #9ba8c9;
   }
 
   .stack-footnote {
-    margin-top: 1.25rem;
-    font-size: 0.85rem;
-    color: #484f58;
-    line-height: 1.6;
-  }
-
-  .stack-footnote a {
-    color: #8b949e;
+    margin-top: 1.3rem;
+    font-size: 0.92rem;
   }
 
   .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
     margin-top: 1rem;
   }
 
   .info-item {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid #21262d;
-    border-radius: 8px;
+    border-radius: 0;
+    border: none;
+    border-left: 3px solid #44528a;
+    background: transparent;
+    padding: 0 0 0 1rem;
   }
 
   .info-item strong {
     display: block;
-    color: #e6edf3;
-    font-size: 0.9rem;
     margin-bottom: 0.35rem;
+    color: #dfe7f0;
   }
 
   .info-item p {
-    font-size: 0.85rem;
-    color: #8b949e;
     margin: 0;
-    line-height: 1.5;
-  }
-
-  .info-item code {
-    color: #d2a8ff;
-    background: transparent;
-    padding: 0;
-    font-size: 0.9em;
+    font-size: 0.85rem;
+    color: #9eabb8;
   }
 
   .hint {
-    font-size: 0.85rem;
-    color: #484f58;
-    margin-top: 0.5rem;
+    font-size: 0.84rem;
+    margin-top: 0.45rem;
   }
 
-  .hint code {
-    color: #a5d6ff;
-    background: transparent;
-    padding: 0;
-    font-size: 0.9em;
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 2.15rem;
+    }
+
+    .component-grid,
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .info-section,
+    .banner {
+      border-radius: 14px;
+    }
   }
 </style>

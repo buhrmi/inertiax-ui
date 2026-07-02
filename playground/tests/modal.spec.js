@@ -51,3 +51,22 @@ test('createModal returns a close function that can close with or without histor
   await page.waitForSelector('.inx-modal_wrapper', { state: 'detached', timeout: 5000 })
   expect(await page.evaluate(() => window.__oncloseCalled)).toBe(true)
 })
+
+test('navigating inside modal frame does not change browser pathname', async ({ page }) => {
+  await page.goto('/')
+  await page.waitForSelector('#app')
+
+  await page.click('a[href="/modal.json"]')
+  await page.waitForSelector('a[href="/modal-content.json"]')
+
+  const before = await page.evaluate(() => window.location.pathname)
+
+  await page.click('a[href="/modal-content.json"]')
+  await page.waitForSelector('.inx-modal_wrapper')
+
+  await page.click('.inx-modal a[href="/modal-content-2.json"]')
+  await page.waitForSelector('.inx-modal input[placeholder="Type and test back/forward..."]')
+
+  const after = await page.evaluate(() => window.location.pathname)
+  expect(after).toBe(before)
+})

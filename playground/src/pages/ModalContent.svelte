@@ -1,71 +1,77 @@
 <script>
+  import { useRemember } from 'inertiax-svelte'
+
   const { close } = $props()
+  let data = useRemember({ name: '' })
 </script>
 
-<main>
-
+<main class="modal-content">
+  <p class="chip">Step 1 of 2</p>
   <h2>Welcome to Inertia X UI</h2>
-  <p>This modal is powered by Inertia X, its content is rendered within an Inertia X Frame component.</p>
-  
+  <p>This page is rendered inside an Inertia X Frame, so the modal can navigate like a small app while staying in place.</p>
+
   <div class="callout">
-  <h3>✨ Try Navigating</h3>
-  <p>Click the link below to go to the next page, then press your browser's <strong>back button</strong>. You'll return here with your scroll position exactly where you left it — Inertia's scroll restoration at work.</p>
-</div>
+    <h3>Enter Some Text</h3>
+    <input type="text" placeholder="Type here, then go to step 2..." bind:value={data.name} />
+    <p>Continue to the next page, then use browser back/forward. This value should remain available across modal navigation.</p>
+  </div>
 
-<p class="footnote">Navigate back, or press the ✕ button or the backdrop to close the modal.</p>
+  <p class="footnote">You can close with the backdrop or the close button in the modal shell.</p>
 
-<nav class="page-nav">
-  <a href="/modal-content-2.json" class="nav-link">Next Page →</a>
-</nav>
+  <nav class="page-nav">
+    <a href="/modal-content-2.json" class="nav-link">Next Page →</a>
+  </nav>
 </main>
 
 <style>
-main {
-  padding: 1.5rem;
-}
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding: 0;
+  .modal-content {
+    padding: 1.2rem;
   }
-  .feature-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    font-size: 0.95rem;
+
+  .chip {
+    display: inline-flex;
+    margin: 0 0 0.65rem;
+    border-radius: 999px;
+    border: 1px solid #4f5e98;
+    background: #1d2550;
+    color: #cad4ff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.56rem;
   }
-  .feature-list li::before {
-    content: '✓';
-    color: #3fb950;
-    font-weight: bold;
-  }
+
   .footnote {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     font-size: 0.85rem;
-    color: #484f58;
+    color: #8e9ba8;
   }
+
+  input {
+    width: 100%;
+    padding: 0.58rem 0.65rem;
+    border-radius: 8px;
+    border: 1px solid #33414f;
+    background-color: #0f141b;
+    color: #e6ecf2;
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+  }
+
   .callout {
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(188, 140, 255, 0.08));
-    border: 1px solid rgba(88, 166, 255, 0.2);
+    background: linear-gradient(135deg, rgba(117, 104, 255, 0.16), rgba(107, 158, 255, 0.14));
+    border: 1px solid rgba(126, 147, 255, 0.4);
     border-radius: 12px;
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1rem;
     margin: 1.25rem 0;
   }
   .callout h3 {
     margin-top: 0;
-    color: #58a6ff;
+    color: #cad4ff;
   }
   .callout p {
-    color: #b0b8c4;
+    color: #d1dae4;
     margin-bottom: 0;
-  }
-  .callout strong {
-    color: #e6edf3;
   }
 </style>
