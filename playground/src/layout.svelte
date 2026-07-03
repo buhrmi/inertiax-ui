@@ -4,8 +4,15 @@
   let { children } = $props()
 
   let currentPage = usePage()
-  const links = [
-    { path: '/modal.json', label: 'Modal' },
+  const navSections = [
+    {
+      title: 'Inertia X UI',
+      links: [{ path: '/modal.json', label: 'Modal' }],
+    },
+    {
+      title: 'Inertia X',
+      links: [{ path: '/frame.json', label: 'Frame' }],
+    },
   ]
 </script>
 
@@ -20,8 +27,15 @@
     </a>
 
     <nav class="sidebar-nav">
-      {#each links as link}
-        <a href={link.path} class="sidebar-link" aria-current={currentPage.url === link.path ? 'page' : undefined}>{link.label}</a>
+      {#each navSections as section}
+        <section class="nav-section">
+          <p class="nav-section-title">{section.title}</p>
+          <div class="nav-section-links">
+            {#each section.links as link}
+              <a href={link.path} class="sidebar-link" aria-current={currentPage.url === link.path ? 'page' : undefined}>{link.label}</a>
+            {/each}
+          </div>
+        </section>
       {/each}
     </nav>
 
@@ -104,6 +118,25 @@
 
   .sidebar-nav {
     margin-top: 0.4rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .nav-section {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .nav-section-title {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    color: #7d8a96;
+    font-weight: 700;
+  }
+
+  .nav-section-links {
     display: grid;
     gap: 0.5rem;
   }

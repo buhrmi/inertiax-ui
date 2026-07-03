@@ -84,7 +84,7 @@ pre {
   margin: 0.9rem 0 1.4rem;
   padding: 1rem 1.25rem;
   border-radius: 14px;
-  background: #1e2630;
+  background: #0003 !important;
   border: 1px solid #313c4a;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   overflow-x: auto;
@@ -130,6 +130,49 @@ pre code {
 .hero-btn.primary:hover {
   background: #675ae9;
   border-color: #675ae9;
+}
+
+.docs-page {
+  max-width: 72ch;
+  animation: rise-in 0.35s ease both;
+}
+
+.docs-eyebrow {
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+  color: #8d9aa7;
+  font-weight: 700;
+}
+
+.docs-page h3 {
+  margin: 0 0 0.45rem;
+  padding-top: 1rem;
+}
+
+.docs-page p {
+  color: #9eabb8;
+  line-height: 1.75;
+}
+
+.docs-page pre {
+  background: transparent;
+  border: 1px solid #3c4655;
+  border-radius: 12px;
+  overflow-x: auto;
+  padding: 0.85rem 1rem;
+}
+
+.docs-page pre code {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.docs-page ul {
+  margin: 0.8rem 0 1.1rem;
+  padding-left: 1.15rem;
+  color: #c8d2de;
 }
 
 .page-nav {

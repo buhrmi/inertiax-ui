@@ -11,8 +11,8 @@
 
 <Toaster richColors theme="dark" position="top-right" />
 
-<section class="demo-section">
-  <p class="eyebrow">Interactive Primitive</p>
+<section class="demo-section docs-page">
+  <p class="docs-eyebrow">Interactive Primitive</p>
   <h2>Modal</h2>
   <p class="subtitle">Display any Inertia X page inside a modal overlay. It behaves like a bottom sheet on mobile and a centered dialog on desktop.</p>
 
@@ -177,17 +177,7 @@ createModal({
   }
 
   .demo-section {
-    animation: rise-in 0.35s ease both;
     padding: 0.6rem 0.35rem 1.2rem;
-  }
-
-  .eyebrow {
-    margin: 0 0 0.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.76rem;
-    color: #8d9aa7;
-    font-weight: 700;
   }
 
   .subtitle {
@@ -202,59 +192,15 @@ createModal({
     margin-bottom: 0.35rem;
   }
 
-  .demo-col :global(h3) {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #dfe7f0;
-    margin: 0 0 0.45rem;
-  }
-
-  .demo-col :global(p) {
-    font-size: 0.93rem;
-    color: #9eabb8;
-    margin: 0 0 1.05rem;
-    line-height: 1.8;
-  }
-
-  .demo-col :global(code) {
-    color: #c5d1ff;
-    background: #1d2550;
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
-    font-size: 0.85em;
-  }
-
   .demo-row {
     display: flex;
     flex-direction: column;
-    gap: 1.05rem;
+    gap: 1.6rem;
   }
 
   .demo-col {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #2f3f4d;
-    border-radius: 12px;
-    background: rgba(20, 27, 34, 0.62);
-    padding: 1.1rem 1.1rem;
-  }
-
-  .demo-col :global(pre) {
-    background: #1f2731;
-    border: 1px solid #3c4655;
-    border-radius: 12px;
-    overflow-x: auto;
-    margin: 0.3rem 0 0;
-    padding: 0.85rem 1rem;
-  }
-
-  .demo-col :global(pre code) {
-    padding: 0;
-    background: transparent;
-    color: #e8f0f8;
-    border-radius: 0;
-    font-size: 0.8rem;
-    line-height: 1.6;
+    display: block;
+    padding: 0.1rem 0;
   }
 
   .demo-result {

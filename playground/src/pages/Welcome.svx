@@ -33,13 +33,19 @@
       <span class="card-link hero-btn primary">Launch demo →</span>
     </a>
 
-    <div class="component-card coming-soon">
-      <h3>Detail</h3>
-      <p>Reserved for a future detail-view example.</p>
+    <a href="/frame.json" class="component-card">
+      <h3>Frame</h3>
+      <p>Mount an isolated Inertia X region with its own navigation lifecycle.</p>
 
+```svelte
+<script>
+  import { Frame } from 'inertiax-svelte'
+</script>
 
-      <span class="card-badge">Coming soon</span>
-    </div>
+<Frame id="settings-panel" src="/settings.json" />
+```
+      <span class="card-link hero-btn primary">Read docs →</span>
+    </a>
 
     <div class="component-card coming-soon">
       <h3>More Themes</h3>

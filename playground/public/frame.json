@@ -1,0 +1,11 @@
+{
+  "component": "Frame",
+  "props": {
+    "errors": {}
+  },
+  "url": "/frame.json",
+  "version": null,
+  "rescuedProps": [],
+  "flash": {},
+  "rememberedState": {}
+}
