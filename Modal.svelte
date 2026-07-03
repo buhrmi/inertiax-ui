@@ -66,7 +66,7 @@
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
   <div class="inx-modal" aria-modal="true" scroll-region role="dialog" transition:css>
-    <Frame {id} {src} {close} visitOptions={{ replace: false }} skipHistoryRestore {...rest}>
+    <Frame {id} {src} {close} visitOptions={{ replace: false }} {...rest}>
       <div class="inx-spinner" ></div>
     </Frame>
     <nav>
