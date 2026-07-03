@@ -211,6 +211,7 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
   .component-card :global(pre) {
     background: #1f2731;
     border: 1px solid #3c4655;
+    overflow-x: auto;
   }
 
   .card-link,
