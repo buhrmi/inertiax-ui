@@ -7,7 +7,7 @@
 <section class="hero banner">
   <p class="eyebrow">Inertia X UI</p>
   <h1>Inertia X UI</h1>
-  <p class="tagline">Production-ready UI components built on top of Inertia X for history-aware multi-frame experiences.</p>
+  <p class="tagline">Production-ready Svelte components for Inertia X.</p>
   <div class="hero-actions">
     <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">Source on GitHub</a>
     <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm package ↗</a>
@@ -17,7 +17,6 @@
 <section class="info-section">
   <h2>What Is Inertia X UI?</h2>
   <p>Inertia X UI is a Svelte component library for Inertia X. It packages opinionated, reusable UI primitives that feel native to browser navigation, including modal flows that can push, replace, and restore history cleanly.</p>
-  <p>Use it when you want polished interface building blocks without giving up frame-scoped routing behavior.</p>
 
   <p class="stack-diagram">
     <span>Inertia X UI</span>
@@ -40,7 +39,7 @@
     <a href="/modal.json" class="component-card">
       <h3>Modal</h3>
       <p><strong>Package:</strong> inertiax-ui</p>
-      <p>Open an Inertia X page in an overlay with history-aware close behavior.</p>
+      <p>Open history-aware Inertia pages in an overlay.</p>
 
 ```svelte
 <script>
@@ -57,7 +56,7 @@
     <a href="/frame.json" class="component-card">
       <h3>Frame</h3>
       <p><strong>Package:</strong> inertiax-svelte</p>
-      <p>Mount an isolated Inertia X region with its own navigation lifecycle.</p>
+      <p>Mount an Inertia page in an isolated region with its own navigation lifecycle.</p>
 
 ```svelte
 <script>
@@ -101,10 +100,6 @@
     <div class="info-item">
       <strong>Theme + structure</strong>
       <p>Ready styles like <code>dark.css</code> and predictable class hooks for easy customization.</p>
-    </div>
-    <div class="info-item">
-      <strong>Close lifecycle controls</strong>
-      <p>Use <code>close()</code>, <code>close(false)</code>, and <code>onclose</code> for explicit modal behavior and parent coordination.</p>
     </div>
   </div>
 
