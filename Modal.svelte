@@ -15,6 +15,7 @@
 
   export function createModal(props) {
     const onclose = props.onclose || (() => {})
+    const id = crypto.randomUUID()
     let modal = null
     let traverseBack = null
     function close(traverse = true) {
@@ -30,6 +31,7 @@
       modal = mount(Modal, { 
         target: document.body,
         props: {
+          id,
           ...props,
           close
         }
@@ -57,14 +59,14 @@
 
 <script>
   import { fade } from 'svelte/transition';
-  const { src, close, ...rest } = $props()
+  const { id, src, close, ...rest } = $props()
 </script>
 
 <div class="inx-modal_wrapper">
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
   <div class="inx-modal" aria-modal="true" scroll-region role="dialog" transition:css>
-    <Frame {...rest} {src} {close} visitOptions={{ replace: false }} skipHistoryRestore>
+    <Frame {id} {src} {close} visitOptions={{ replace: false }} skipHistoryRestore {...rest}>
       <div class="inx-spinner" ></div>
     </Frame>
     <nav>
