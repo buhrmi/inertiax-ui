@@ -5,21 +5,42 @@
 </script>
 
 <section class="hero banner">
-  <p class="eyebrow">Component Playground</p>
+  <p class="eyebrow">Inertia X UI</p>
   <h1>Inertia X UI</h1>
-  <p class="tagline">Narrative-first Svelte components for Inertia X.</p>
+  <p class="tagline">Production-ready UI components built on top of Inertia X for history-aware multi-frame experiences.</p>
   <div class="hero-actions">
     <a href="https://github.com/buhrmi/inertiax-ui" target="_blank" class="hero-btn primary">Source on GitHub</a>
     <a href="https://www.npmjs.com/package/inertiax-ui" target="_blank" class="hero-btn">npm package ↗</a>
   </div>
 </section>
 
+<section class="info-section">
+  <h2>What Is Inertia X UI?</h2>
+  <p>Inertia X UI is a Svelte component library for Inertia X. It packages opinionated, reusable UI primitives that feel native to browser navigation, including modal flows that can push, replace, and restore history cleanly.</p>
+  <p>Use it when you want polished interface building blocks without giving up frame-scoped routing behavior.</p>
+
+  <p class="stack-diagram">
+    <span>Inertia X UI</span>
+    <span class="stack-arrow">UI primitives like Modal, plus ready-to-use themes</span>
+  </p>
+  <p class="stack-diagram">
+    <span>Inertia X</span>
+    <span class="stack-arrow">Frame-based routing, history-aware mounts, and global link interception</span>
+  </p>
+  <p class="stack-diagram">
+    <span>Inertia.js</span>
+    <span class="stack-arrow">Server-driven SPA model</span>
+  </p>
+</section>
+
 <section class="component-index">
-  <h2>Playable Components</h2>
+  <h2>Components</h2>
+  <p class="section-intro">Start with a UI component from Inertia X UI, then learn the underlying Inertia X primitive.</p>
   <div class="component-grid">
     <a href="/modal.json" class="component-card">
       <h3>Modal</h3>
-      <p>Open an Inertia X page inside a modal frame.</p>
+      <p><strong>Package:</strong> inertiax-ui</p>
+      <p>Open an Inertia X page in an overlay with history-aware close behavior.</p>
 
 ```svelte
 <script>
@@ -35,6 +56,7 @@
 
     <a href="/frame.json" class="component-card">
       <h3>Frame</h3>
+      <p><strong>Package:</strong> inertiax-svelte</p>
       <p>Mount an isolated Inertia X region with its own navigation lifecycle.</p>
 
 ```svelte
@@ -46,34 +68,10 @@
 ```
       <span class="card-link hero-btn primary">Read docs →</span>
     </a>
-
-    <div class="component-card coming-soon">
-      <h3>More Themes</h3>
-      <p>Reserved for additional theme examples.</p>
-      <span class="card-badge">Coming soon</span>
-    </div>
   </div>
-
-
 </section>
 
 <section class="info-section">
-  <h2>Built on Inertia X</h2>
-  <p>Inertia X UI is a component library for <a href="https://github.com/buhrmi/inertiax" target="_blank">Inertia X</a>, a fork of Inertia.js that extends the Svelte adapter with multi-frame support. This package provides production-ready UI pieces that embrace native browser navigation.</p>
-
-  <p class="stack-diagram">
-    <span>Inertia X UI</span>
-    <span class="stack-arrow">Svelte component layer</span>
-  </p>
-  <p class="stack-diagram">
-    <span>Inertia X</span>
-    <span class="stack-arrow">Multi-frame routing and global click handling</span>
-  </p>
-  <p class="stack-diagram">
-    <span>Inertia.js</span>
-    <span class="stack-arrow">Server-routed single page app model</span>
-  </p>
-
   <h3>What Inertia X adds to Inertia.js</h3>
   <div class="info-grid">
     <div class="info-item">
@@ -94,15 +92,34 @@
     </div>
   </div>
 
-  <p class="stack-footnote"><a href="https://inertiajs.com/">Inertia.js</a> is the foundation - it lets you build SPAs using classic server-side routing and controllers, no API needed. It's the glue between your server framework (Laravel, Rails, etc.) and your Svelte components.</p>
+  <h3>What Inertia X UI adds to Inertia X</h3>
+  <div class="info-grid">
+    <div class="info-item">
+      <strong>Modal primitive</strong>
+      <p><code>use:modal</code> and <code>createModal()</code> give you a fast path to modal UX built on Frame routing.</p>
+    </div>
+    <div class="info-item">
+      <strong>Theme + structure</strong>
+      <p>Ready styles like <code>dark.css</code> and predictable class hooks for easy customization.</p>
+    </div>
+    <div class="info-item">
+      <strong>Close lifecycle controls</strong>
+      <p>Use <code>close()</code>, <code>close(false)</code>, and <code>onclose</code> for explicit modal behavior and parent coordination.</p>
+    </div>
+  </div>
+
+  <p class="stack-footnote"><a href="https://inertiajs.com/">Inertia.js</a> remains the base layer: server-side routes and controllers drive your page payloads while Svelte renders the client view.</p>
 </section>
 
 <section class="info-section">
   <h2>Getting Started</h2>
+  <p>Install Inertia X and Inertia X UI, then import the component API and theme.</p>
 
 ```bash
-npm install inertiax-ui
+npm install inertiax-svelte inertiax-ui
 ```
+
+In your app entry:
 
 Import a theme and the components you need:
 
@@ -111,7 +128,7 @@ import 'inertiax-ui/dark.css'
 import { createModal, modal } from 'inertiax-ui'
 ```
 
-Use `use:modal` on links or `createModal()` to open any Inertia X page in a modal overlay.
+Use <code>use:modal</code> on links or <code>createModal()</code> to open Inertia X pages in a modal overlay.
 
 <a href="/modal.json" class="hero-btn primary">See examples & demo →</a>
 </section>
@@ -177,9 +194,14 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
     margin-bottom: 0.8rem;
   }
 
+  .section-intro {
+    margin-bottom: 1rem;
+    max-width: 64ch;
+  }
+
   .component-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.1rem;
   }
 
@@ -205,10 +227,6 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
     border-color: #7568ff;
   }
 
-  .component-card.coming-soon {
-    opacity: 0.68;
-  }
-
   .component-card p {
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
@@ -216,13 +234,12 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
   }
 
   .component-card :global(pre) {
-    background: #1f2731;
+    background: transparent;
     border: 1px solid #3c4655;
     overflow-x: auto;
   }
 
-  .card-link,
-  .card-badge {
+  .card-link {
     margin-top: auto;
     font-size: 0.78rem;
     font-weight: 600;
@@ -232,14 +249,6 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
     align-self: flex-start;
     margin-top: 0.8rem;
     text-decoration: none;
-  }
-
-  .card-badge {
-    display: inline-block;
-    padding: 0.15rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid #2f3f4d;
-    color: #8c99a6;
   }
 
   .info-section {
@@ -252,6 +261,7 @@ Use `use:modal` on links or `createModal()` to open any Inertia X page in a moda
   .info-section h2,
   .info-section h3 {
     margin-bottom: 0.9rem;
+    margin-top: 2rem;
   }
 
   .info-section p {
