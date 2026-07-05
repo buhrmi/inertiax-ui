@@ -49,10 +49,8 @@
       <a href="https://github.com/buhrmi/inertiax-ui/blob/main/dark.css" target="_blank">dark.css ↗</a>
     </div>
 
-    <section class="content-card">
-      {@render children?.()}
-    </section>
-
+    {@render children?.()}
+    
     <footer class="docs-section">
       <h2>Documentation</h2>
       <p>Complete docs, package details, and source code live in the repository.</p>
@@ -217,13 +215,7 @@
     text-decoration: underline;
   }
 
-  .content-card {
-    border-radius: 24px;
-    border: 1px solid var(--line);
-    background: rgba(20, 27, 34, 0.72);
-    box-shadow: var(--shadow);
-    padding: clamp(1.5rem, 2.7vw, 2.6rem);
-  }
+
 
   .docs-section {
     margin-top: 1.6rem;
