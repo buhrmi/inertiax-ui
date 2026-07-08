@@ -47,6 +47,8 @@
     <div class="theme-chip">
       <span>Theme pack included:</span>
       <a href="https://github.com/buhrmi/inertiax-ui/blob/main/dark.css" target="_blank">dark.css ↗</a>
+      <span>/</span>
+      <a href="https://github.com/buhrmi/inertiax-ui/blob/main/light.css" target="_blank">light.css ↗</a>
     </div>
 
     {@render children?.()}
@@ -311,7 +313,6 @@
       grid-template-columns: 1fr;
     }
 
-    .content-card,
     .docs-section {
       border-radius: 16px;
     }

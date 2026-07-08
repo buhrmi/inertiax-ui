@@ -6,7 +6,7 @@ Demo: https://inertiax-ui.netlify.app
 
 ## Modal
 
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Here you can see the included default style (dark.css), which renders as a bottom sheet on mobile, and centered on the page on desktop.
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Inertia X UI ships with both `dark.css` and `light.css` themes. The preview below shows `dark.css`, which renders as a bottom sheet on mobile and centered on desktop.
 
 ![dark.css demo](./dark.css.webp)
 
@@ -126,10 +126,16 @@ To start using Inertia X UI, install the `inertiax-ui` package and import the CS
 
 ### Styling
 
-Inertia X UI ships with a default [dark.css](./dark.css) style that displays the modal as a bottom sheet.
+Inertia X UI ships with both [dark.css](./dark.css) and [light.css](./light.css).
 
 ```js
 import 'inertiax-ui/dark.css'
+```
+
+Or use:
+
+```js
+import 'inertiax-ui/light.css'
 ```
 
 For full styling control, you can of course bring your own CSS. The key classes to target are:

@@ -27,17 +27,23 @@
  * the path is properly mounted or unmounted.
  */
 
+import { BROWSER } from 'esm-env'
+
 const arrivers = {}
 const cleanups = {}
 
 export function push(arrive) {
+  if (!BROWSER || !("navigation" in window)) {
+    return
+  }
+
   const currentState = history.state
   const previousKey = navigation.currentEntry.key
   history.pushState(currentState, '', '')
   const currentKey = navigation.currentEntry.key
   arrivers[currentKey] = arrive
   cleanups[currentKey] = arrive(() => navigation.traverseTo(previousKey))
-}  
+}
 
 function garbageCollectOrphanedCallbacks() {
   const validKeys = new Set(navigation.entries().map(e => e.key))
@@ -49,38 +55,40 @@ function garbageCollectOrphanedCallbacks() {
   }
 }
 
-window.navigation.addEventListener('currententrychange', garbageCollectOrphanedCallbacks)
+if (BROWSER && 'navigation' in window) {
+  window.navigation.addEventListener('currententrychange', garbageCollectOrphanedCallbacks)
 
-window.navigation.addEventListener('navigate', (event) => {
-  if (event.navigationType === 'traverse') {  
-    const destIndex = event.destination.index
-    const currIndex = navigation.currentEntry.index
-    const entries = navigation.entries()
+  window.navigation.addEventListener('navigate', (event) => {
+    if (event.navigationType === 'traverse') {
+      const destIndex = event.destination.index
+      const currIndex = navigation.currentEntry.index
+      const entries = navigation.entries()
 
-    if (destIndex > currIndex) {
-      // Run after current entry switches so history.state reflects destination.
-      const onCurrentEntryChange = () => {
-        if (navigation.currentEntry.key !== event.destination.key) {
-          return
+      if (destIndex > currIndex) {
+        // Run after current entry switches so history.state reflects destination.
+        const onCurrentEntryChange = () => {
+          if (navigation.currentEntry.key !== event.destination.key) {
+            return
+          }
+
+          for (let i = currIndex + 1; i <= destIndex; i++) {
+            const key = entries[i].key
+            const prevKey = entries[i - 1].key
+            cleanups[key] = arrivers[key]?.(() => navigation.traverseTo(prevKey))
+          }
+
+          window.navigation.removeEventListener('currententrychange', onCurrentEntryChange)
         }
 
-        for (let i = currIndex + 1; i <= destIndex; i++) {
-          const key = entries[i].key
-          const prevKey = entries[i - 1].key
-          cleanups[key] = arrivers[key]?.(() => navigation.traverseTo(prevKey))
+        window.navigation.addEventListener('currententrychange', onCurrentEntryChange)
+      } else if (destIndex < currIndex) {
+        // navigated back — cleanup all entries from current down to dest+1
+        for (let i = currIndex; i > destIndex; i--) {
+          cleanups[entries[i].key]?.()
         }
-
-        window.navigation.removeEventListener('currententrychange', onCurrentEntryChange)
-      }
-
-      window.navigation.addEventListener('currententrychange', onCurrentEntryChange)
-    } else if (destIndex < currIndex) {
-      // navigated back — cleanup all entries from current down to dest+1
-      for (let i = currIndex; i > destIndex; i--) {
-        cleanups[entries[i].key]?.()
       }
     }
-  }
-})
+  })
+}
 
   
