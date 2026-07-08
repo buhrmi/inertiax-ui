@@ -1,6 +1,6 @@
 {
   "name": "inertiax-ui",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "UI component library for Inertia X",
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "files": [
     "index.js",
+    "history.js",
     "Modal.svelte",
     "dark.css",
     "index.d.ts"
