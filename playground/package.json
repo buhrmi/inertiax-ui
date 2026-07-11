@@ -17,8 +17,8 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
-    "inertiax-svelte": "^11.0.32",
     "inertiax-core": "^11.0.32",
+    "inertiax-svelte": "^11.0.32",
     "mdsvex": "^0.12.7",
     "vite": "^6.0.0"
   },

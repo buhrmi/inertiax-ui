@@ -28,20 +28,12 @@ export default defineConfig({
       'inertiax-svelte': resolve(__dirname, 'node_modules/inertiax-svelte'),
     },
   },
-  build: {
-    rollupOptions: {
-      external: [],
-    },
-  },
-  optimizeDeps: {
-    include: ['esm-env'],
-  },
   server: {
     headers: {
       'X-Inertia': 'true',
     },
   },
   ssr: {
-    noExternal: ['inertiax-ui', 'esm-env'],
+    noExternal: ['inertiax-ui'],
   },
 })
