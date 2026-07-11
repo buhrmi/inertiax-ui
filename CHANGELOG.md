@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.25
+
+- Set a min height
+
 ## 0.0.24
 
 ### Added

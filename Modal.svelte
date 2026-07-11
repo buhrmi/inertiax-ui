@@ -122,9 +122,6 @@
   <!-- svelte-ignore a11y_click_events_have_key_events,a11y_no_static_element_interactions -->
   <div class="inx-modal_bg" onclick={close} transition:fade={{duration: 200}}></div>
   <div class="inx-modal" aria-modal="true" scroll-region role="dialog" transition:css bind:this={modalEl}>
-    <Frame {id} {src} {close} visitOptions={{ replace: false }} {...rest}>
-      <div class="inx-spinner" ></div>
-    </Frame>
     <nav>
       <button onclick={close} aria-label="Close modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -133,6 +130,9 @@
         </svg>
       </button>
     </nav>
+    <Frame {id} {src} {close} visitOptions={{ replace: false }} {...rest}>
+      <div class="inx-spinner" ></div>
+    </Frame>
   </div>
 </div>
 

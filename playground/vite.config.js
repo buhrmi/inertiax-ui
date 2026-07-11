@@ -10,11 +10,12 @@ export default defineConfig({
     {
       name: 'inertia-json-guard',
       configureServer(server) {
-        server.middlewares.use((req, res, next) => {
+        server.middlewares.use(async (req, res, next) => {
           if (!req.url?.startsWith('/') || !req.url.endsWith('.json')) {
             return next()
           }
           if (req.headers['x-inertia']) {
+            // await new Promise(resolve => setTimeout(resolve, 2000));
             return next()
           }
           req.url = '/index.html'

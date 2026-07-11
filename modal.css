@@ -7,7 +7,7 @@
   --inx-modal-nav-bg: rgba(0, 0, 0, 0.9);
   --inx-modal-bg: rgba(0, 0, 0, 0.13);
   --inx-modal-border: #333;
-  --inx-modal-spinner: #fff;
+  --inx-modal-spinner: #aaa;
 }
 
 @media (prefers-color-scheme: light) {
@@ -91,7 +91,7 @@ body:has(.inx-modal) {
   border-top-left-radius: var(--inx-modal-radius, 2rem);
   border-top-right-radius: var(--inx-modal-radius, 2rem);
   backdrop-filter: blur(var(--inx-modal-blur, 8px));
-  /* min-height: var(--inx-modal-min-height, 70%); */
+  min-height: var(--inx-modal-min-height, 180px);
   max-height: 90vh;
   --inx-modal-duration: 0.4s;
 }
@@ -115,13 +115,13 @@ body:has(.inx-modal) {
 .inx-spinner {
   width: 32px;
   height: 32px;
-  border: 2px solid var(--inx-modal-spinner);
+  border: 1px solid var(--inx-modal-spinner);
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: auto;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
