@@ -88,6 +88,17 @@ createModal({
 
 Common use cases: reloading the parent page after an edit, resetting form state, or cleaning up side effects.
 
+### `animateHeight`
+
+By default, the modal smoothly animates its height whenever the content changes (e.g., navigating between pages inside the modal). Set `animateHeight: false` to disable this behavior and let the modal resize instantly.
+
+```js
+createModal({
+  src: '/profile/edit',
+  animateHeight: false
+})
+```
+
 ### Communicating with the parent
 
 All props passed to `createModal` (except `src`) are forwarded to the page component rendered inside the modal. This lets you pass callbacks that the modal page can call to communicate back to the parent.

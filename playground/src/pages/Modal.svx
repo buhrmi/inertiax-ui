@@ -108,6 +108,28 @@ history and unmount. Call `close(false)` to just unmount without affecting histo
 
       <div class="demo-col">
 
+### Height Animation
+
+By default, the modal smoothly animates its height when content changes — for example,
+when navigating from one page to another inside the modal. Set `animateHeight: false`
+to disable the animation.
+
+```js
+createModal({
+  src: '/modal-content.json',
+  animateHeight: false
+})
+```
+
+```svelte
+<a href="/modal-content.json" use:modal={{ animateHeight: false }}>
+  Open Modal
+</a>
+```
+      </div>
+
+      <div class="demo-col">
+
 ### Parent Communication
 
 All props passed to `createModal` are forwarded to the page component. Pass callbacks to let
