@@ -34,6 +34,6 @@ export default defineConfig({
     },
   },
   ssr: {
-    noExternal: ['inertiax-ui'],
+    noExternal: ['inertiax-ui', 'esm-env'],
   },
 })
