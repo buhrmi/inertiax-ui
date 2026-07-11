@@ -27,7 +27,7 @@
   ],
   "peerDependencies": {
     "svelte": "^5.0.0",
-    "inertiax-svelte": "^11.0.18"
+    "inertiax-svelte": "^11.0.38"
   },
   "dependencies": {
     "esm-env": "^1.2.2"
