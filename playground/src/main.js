@@ -1,6 +1,6 @@
 import './app.css'
 import 'prismjs/themes/prism-tomorrow.css'
-import 'inertiax-ui/dark.css'
+import 'inertiax-ui/modal.css'
 import { createInertiaApp } from 'inertiax-svelte'
 import { mount } from 'svelte'
 import { createModal } from 'inertiax-ui'

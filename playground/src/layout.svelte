@@ -45,10 +45,9 @@
 
   <main class="content-wrap">
     <div class="theme-chip">
-      <span>Theme pack included:</span>
-      <a href="https://github.com/buhrmi/inertiax-ui/blob/main/dark.css" target="_blank">dark.css ↗</a>
-      <span>/</span>
-      <a href="https://github.com/buhrmi/inertiax-ui/blob/main/light.css" target="_blank">light.css ↗</a>
+      <span>Theme:</span>
+      <a href="https://github.com/buhrmi/inertiax-ui/blob/main/modal.css" target="_blank">modal.css ↗</a>
+      <span>(auto dark/light)</span>
     </div>
 
     {@render children?.()}

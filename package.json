@@ -1,6 +1,6 @@
 {
   "name": "inertiax-ui",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "UI component library for Inertia X",
   "repository": {
     "type": "git",
@@ -16,12 +16,15 @@
       "default": "./index.js"
     },
     "./Modal.svelte": "./Modal.svelte",
-    "./dark.css": "./dark.css"
+    "./modal.css": "./modal.css",
+    "./dark.css": "./dark.css",
+    "./light.css": "./light.css"
   },
   "files": [
     "index.js",
     "history.js",
     "Modal.svelte",
+    "modal.css",
     "dark.css",
     "light.css",
     "index.d.ts"

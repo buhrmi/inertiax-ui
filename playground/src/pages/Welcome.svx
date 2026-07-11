@@ -100,7 +100,7 @@
     </div>
     <div class="info-item">
       <strong>Theme + structure</strong>
-      <p>Ready styles like <code>dark.css</code> and <code>light.css</code>, plus predictable class hooks for easy customization.</p>
+      <p>Ready theme (<code>modal.css</code>) that auto-adapts to system preference, plus predictable class hooks for easy customization.</p>
     </div>
   </div>
 
@@ -120,8 +120,7 @@ In your app entry:
 Import a theme and the components you need:
 
 ```js
-import 'inertiax-ui/dark.css'
-// or: import 'inertiax-ui/light.css'
+import 'inertiax-ui/modal.css'
 import { createModal, modal } from 'inertiax-ui'
 ```
 
@@ -132,7 +131,7 @@ Use <code>use:modal</code> on links or <code>createModal()</code> to open Inerti
 
 <section class="info-section">
   <h2>Styling</h2>
-  <p>Inertia X UI ships with both <code>dark.css</code> and <code>light.css</code> themes. Override any CSS custom property or write your own theme from scratch.</p>
+  <p>Inertia X UI ships with <code>modal.css</code> which respects <code>prefers-color-scheme</code> and can be overridden with the <code>[data-theme]</code> attribute. Override any CSS custom property or write your own theme from scratch.</p>
   <ul class="class-list">
     <li><code>.inx-modal_wrapper</code> - full-screen overlay</li>
     <li><code>.inx-modal_bg</code> - clickable backdrop</li>

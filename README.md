@@ -6,9 +6,9 @@ Demo: https://inertiax-ui.netlify.app
 
 ## Modal
 
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Inertia X UI ships with both `dark.css` and `light.css` themes. The preview below shows `dark.css`, which renders as a bottom sheet on mobile and centered on desktop.
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Inertia X UI ships with a unified `modal.css` theme that respects system color scheme preferences and can be overridden with the `[data-theme]` attribute. The preview below shows the default dark theme, which renders as a bottom sheet on mobile and centered on desktop.
 
-![dark.css demo](./dark.css.webp)
+![modal.css demo](./dark.css.webp)
 
 ### Creating a modal
 
@@ -126,16 +126,20 @@ To start using Inertia X UI, install the `inertiax-ui` package and import the CS
 
 ### Styling
 
-Inertia X UI ships with both [dark.css](./dark.css) and [light.css](./light.css).
+Inertia X UI ships with `modal.css` which automatically adapts to the system color scheme preference. You can override this by setting the `[data-theme]` attribute on `html` or `body`:
 
 ```js
-import 'inertiax-ui/dark.css'
+import 'inertiax-ui/modal.css'
 ```
 
-Or use:
+To force a theme:
 
 ```js
-import 'inertiax-ui/light.css'
+// Force dark theme
+document.documentElement.setAttribute('data-theme', 'dark')
+
+// Force light theme
+document.documentElement.setAttribute('data-theme', 'light')
 ```
 
 For full styling control, you can of course bring your own CSS. The key classes to target are:
