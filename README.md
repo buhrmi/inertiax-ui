@@ -6,7 +6,7 @@ Demo: https://inertiax-ui.netlify.app
 
 ## Modal
 
-The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. Inertia X UI ships with a unified `modal.css` theme that respects system color scheme preferences and can be overridden with the `[data-theme]` attribute. The preview below shows the default dark theme, which renders as a bottom sheet on mobile and centered on desktop.
+The Modal component displays an [Inertia X Frame](https://github.com/buhrmi/inertiax#frame-component) within a modal. The preview below shows the default dark theme, which renders as a bottom sheet on mobile and centered on desktop. See below for styling options
 
 ![modal.css demo](./dark.css.webp)
 

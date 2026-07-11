@@ -16,17 +16,13 @@
       "default": "./index.js"
     },
     "./Modal.svelte": "./Modal.svelte",
-    "./modal.css": "./modal.css",
-    "./dark.css": "./dark.css",
-    "./light.css": "./light.css"
+    "./modal.css": "./modal.css"
   },
   "files": [
     "index.js",
     "history.js",
     "Modal.svelte",
     "modal.css",
-    "dark.css",
-    "light.css",
     "index.d.ts"
   ],
   "peerDependencies": {

@@ -9,6 +9,7 @@
     "test": "playwright test"
   },
   "dependencies": {
+    "esm-env": "^1.2.2",
     "inertiax-ui": "file:..",
     "svelte": "^5.0.0",
     "svelte-sonner": "^1.1.1"
