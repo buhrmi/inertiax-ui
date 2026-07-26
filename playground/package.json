@@ -11,16 +11,16 @@
   "dependencies": {
     "esm-env": "^1.2.2",
     "inertiax-ui": "file:..",
-    "svelte": "^5.0.0",
+    "svelte": "^5.56.8",
     "svelte-sonner": "^1.1.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.61.1",
-    "@sveltejs/vite-plugin-svelte": "^5.0.0",
-    "inertiax-core": "^11.0.38",
-    "inertiax-svelte": "^11.0.38",
-    "mdsvex": "^0.12.7",
-    "vite": "^6.0.0"
+    "@playwright/test": "^1.62.0",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "inertiax-core": "^11.0.46",
+    "inertiax-svelte": "^11.0.46",
+    "mdsvex": "^0.12.8",
+    "vite": "^6.4.3"
   },
   "version": "0.0.1"
 }
