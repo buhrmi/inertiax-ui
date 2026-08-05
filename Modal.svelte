@@ -18,9 +18,9 @@
     const id = crypto.randomUUID()
     let modal = null
     let traverseBack = null
-    function close(traverse = true) {
+    async function close(traverse = true) {
       if (traverse && traverseBack) {
-        traverseBack()
+        await traverseBack()
       } else {
         unmount(modal, { outro: true })
         onclose()
