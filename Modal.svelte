@@ -3,7 +3,7 @@
   import { Frame } from 'inertiax-svelte'
   import Modal from './Modal.svelte';
   import { cubicOut } from 'svelte/easing';
-  import { push } from './history'
+  import { go } from './history'
 
   export function modal(node, props) {
     node.addEventListener('click', (e) => {
@@ -26,7 +26,7 @@
         onclose()
       }
     }
-    push(function(tb) {
+    function arrive(tb) {
       traverseBack = tb
       modal = mount(Modal, { 
         target: document.body,
@@ -37,7 +37,8 @@
         }
       })
       return () => close(false)
-    })
+    }
+    go(arrive, { replace: props.replace || false })
     return close
   }
 

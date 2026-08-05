@@ -32,14 +32,23 @@ import { BROWSER } from 'esm-env'
 const arrivers = {}
 const cleanups = {}
 
+export function replace(arrive) {
+  go(arrive, { replace: true })
+}
+
 export function push(arrive) {
+  go(arrive, { replace: false })
+}
+
+export function go(arrive, { replace = false }) {
   if (!BROWSER || !("navigation" in window)) {
     return
   }
 
   const currentState = history.state
   const previousKey = navigation.currentEntry.key
-  history.pushState(currentState, '', '')
+  if (replace) history.replaceState(currentState, '', '')
+  else history.pushState(currentState, '', '')
   const currentKey = navigation.currentEntry.key
   arrivers[currentKey] = arrive
   cleanups[currentKey] = arrive(() => navigation.traverseTo(previousKey))
