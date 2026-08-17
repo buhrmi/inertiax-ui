@@ -1,5 +1,8 @@
 # Inertia X UI
 
+> [!NOTE]
+> Inertia X UI will be completely rewritten to optimize for a native-like feel on mobile before hitting 1.0
+
 A collection of Svelte components for [Inertia X](https://github.com/buhrmi/inertiax).
 
 Demo: https://inertiax-ui.netlify.app
