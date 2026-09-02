@@ -1,8 +1,0 @@
-[build]
-  base = "playground"
-  command = "npm install --prefix .. && npm install && npm run build"
-  publish = "dist"
-
-[[edge_functions]]
-  function = "inertia"
-  path = "/*"
