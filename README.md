@@ -1,7 +1,8 @@
 # Inertia X UI
 
-> [!NOTE]
-> Inertia X UI will be completely rewritten to optimize for a native-like feel on mobile before hitting 1.0
+> **DEPRECATION NOTICE**
+>
+> Inertia X UI 1.0 is deprecated and unsupported. The party continues on the [2.x branch](https://github.com/buhrmi/inertiax-ui/tree/2.x).
 
 A collection of Svelte components for [Inertia X](https://github.com/buhrmi/inertiax).
 
